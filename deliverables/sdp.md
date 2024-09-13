@@ -15,7 +15,7 @@ Communication mechanism: -
 Timelines
 
 Gantt Chart
-![Gantt chart](image.png)
+![Gantt chart](image.jpg)
 
 MVS: - 21st September to 27th September 2024
 
