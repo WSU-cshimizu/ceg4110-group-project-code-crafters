@@ -1,5 +1,5 @@
 Software Development Plan
-Communication Plan 
+#Communication Plan 
 
 Meeting Locations: -
 We primarily hold meetings in the Fawcett Hall classroom, and the library's Help Desk lounge, and also use Discord for virtual discussions.
@@ -12,7 +12,7 @@ Meeting Cadence - At least two days per week
 Communication mechanism: -
  We use Discord for virtual discussions, while important updates or information are conveyed via email, text, or call. Responses are expected within a day.
 
-Timelines
+#Timelines
 
 Gantt Chart
 ![Gantt chart](image.jpg)
