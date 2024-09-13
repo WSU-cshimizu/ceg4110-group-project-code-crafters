@@ -23,7 +23,7 @@ Requirement Specification: - 23rd September to 24th September 2024
 
 Design Specification: - 25th September to 2nd October 2024
 
-Milestones
+**Milestones**
 
 Front-End Development:- 
     Voter authentication, candidate viewing, ballot design, and voting submission.
