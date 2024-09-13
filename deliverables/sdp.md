@@ -23,19 +23,23 @@ Requirement Specification: - 23rd September to 24th September 2024
 
 Design Specification: - 25th September to 2nd October 2024
 
- Milestones
-•	Front-End Development	
-o	Voter authentication, candidate viewing, ballot design, and voting submission.
-o	Framework: React.js for building an interactive, responsive interface.
-•	Back-End Development
-o	Admin dashboard for creating elections, managing candidates, and monitoring votes.
-o	Secure vote counting, real-time results, and voter eligibility verification.
-o	Framework: Django or Node.js for managing user data, security, and interactions with the database.
-•	Database Development
-o	Database scheme (PostgreSQL or MySQL for relational data management)
-o	Program wireframe
-•	Deployment
-o	Deploy the system on cloud servers and perform final checks.
-o	Integration and testing
-•	Final delivery 
-o	Release the final version of product and perform final presentation.
+Milestones
+Front-End Development	
+    Voter authentication, candidate viewing, ballot design, and voting submission.
+    Framework: React.js for building an interactive, responsive interface.
+
+Back-End Development
+	Admin dashboard for creating elections, managing candidates, and monitoring votes.
+	Secure vote counting, real-time results, and voter eligibility verification.
+	Framework: Django or Node.js for managing user data, security, and interactions with the database.
+
+Database Development
+	Database scheme (PostgreSQL or MySQL for relational data management)
+	Program wireframe
+
+Deployment
+	Deploy the system on cloud servers and perform final checks.
+	Integration and testing
+    
+Final delivery 
+	Release the final version of product and perform final presentation.
