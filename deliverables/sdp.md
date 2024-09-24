@@ -25,7 +25,7 @@ We use Discord for virtual discussions, while important updates or information a
 **Requirement Specification:**
 23rd September to 24th September 2024
 
-### Design Specification:**
+** Design Specification:**
 25th September to 2nd October 2024
 
 
