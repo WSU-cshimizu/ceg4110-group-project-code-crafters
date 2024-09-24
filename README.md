@@ -1,10 +1,23 @@
-# group-project
-Team name :- Code-crafters
+# Group-project (Team: Code-crafters)
 
-# Group Members
-Sachin Patel  
-Prashant Rai  
-Divyesh Ambaliya  
-Michael Donahue  
-Dhruv Patel  
-
+## Group Members
+#### Sachin Patel  
+* Graduate 
+* Freshman
+* International
+#### Prashant Rai  
+* Graduate 
+* Freshman
+* International
+#### Divyesh Ambaliya  
+* Undergrad 
+* Freshman
+* International
+#### Michael Donahue
+* Undergrad
+* Senior
+* Non-International
+#### Dhruv Patel  
+* Graduate 
+* Freshman
+* International
