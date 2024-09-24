@@ -1,3 +1,4 @@
+
 # Software Development Plan  
 
 ## Communication Plan 
@@ -50,6 +51,28 @@ We use Discord for virtual discussions, while important updates or information a
 - Final delivery:
 	Release the final version of product and perform final presentation.
 
+## CP(Critical Path):
+
+The critical path was designed based on the sequential steps essential to 
+the completion of the online voting system project. We've ensured that 
+tasks related to core system functionality, such as user authentication, 
+ballot creation, and voting tally mechanisms, are prioritized first. These 
+components are critical since any delay in their completion would directly 
+affect subsequent tasks, like user interface adjustments and system 
+security enhancements. Given our team's consistent workflow and effective 
+collaboration, we're confident in adhering to this path with minimal risk 
+of delays.
+
+## PM(Project Management):
+
+For project management, we employed a risk-averse approach, taking into 
+account possible delays or challenges with resource availability and team 
+member workloads. The project timelines were built to accommodate 
+flexibility, allowing us to adapt if certain tasks take longer than 
+anticipated. By frequently reviewing progress through team check-ins and 
+refining our Gantt chart as needed, we aim to maintain focus on key 
+deliverables while ensuring that the team can address unforeseen issues 
+without affecting overall project deadlines.
 
 ## Change of Dates
 
