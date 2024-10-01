@@ -18,7 +18,7 @@ We use Discord for virtual discussions, while important updates or information a
 ## Timelines
 
 **Gantt Chart**
-![Gantt chart](image.jpg)
+![Gantt chart](image.png)
 
 **MVS:**
 21st September to 30th September 2024
@@ -78,9 +78,9 @@ without affecting overall project deadlines.
 
 | Task                               |From Dates           | To Dates            | Reason                                               | 
 | -----------------------------------|---------------------|---------------------|------------------------------------------------------|
-| Requirement specification          |09-23-2024/09-24-2024|09-24-2024/10-04-2024|To proceed according to class schedule.               |
-| Wireframe Design	 			     |09-25-2024/10-02-2024|09-30-2024/10-07-2024|rescheduled following req. specification date.        |
-| Database scheme design             |09-25-2024/10-02-2024|09-30-2024/10-07-2024|rescheduled following req. specification date.        |
+| Requirement specification          |09-23-2024/09-24-2024|09-24-2024/10-07-2024|To proceed according to class schedule.               |
+| Wireframe Design	 			     |09-25-2024/10-02-2024|09-30-2024/10-17-2024|rescheduled following req. specification date.        |
+| Database scheme design             |09-25-2024/10-02-2024|09-30-2024/10-17-2024|rescheduled following req. specification date.        |
 | FrontEnd Development               |09-28-2024/11-10-2024|10-08-2024/11-10-2024|rescheduled following design specification date.      |
 | BackeEnd Development				 |09-28-2024/11-17-2024|10-12-2024/11-20-2024|rescheduled to start it only after 4 days of frontend |development.
 | Final report						 |10-19-2024/11-26-2024|10-25-2024/12-27-2024|rescheduled accordingly with the other changed dates  |
