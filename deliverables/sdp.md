@@ -18,7 +18,7 @@ We use Discord for virtual discussions, while important updates or information a
 ## Timelines
 
 **Gantt Chart**
-![Gantt chart](image.png)
+![Gantt chart]()
 
 **MVS:**
 21st September to 30th September 2024
