@@ -20,4 +20,6 @@ The scribe is the person taking the _notes_. This is encouraged to be a single p
 * Draft were reviewed by all the members.
 
 ## Signatures
-Prashant Rai, Michael Donahue
+Prashant Rai
+Michael Donahue
+Sachin Patel 
