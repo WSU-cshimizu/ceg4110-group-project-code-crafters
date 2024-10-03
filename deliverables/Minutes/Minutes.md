@@ -10,8 +10,6 @@ The scribe is the person taking the _notes_. This is encouraged to be a single p
 ## Agenda
 * Discussed data flow diagram 
   * Design specifications
-  * ...
-* ...
 
 ## Notes
 *Discussion on communication needed between different aspects of the implementation 
