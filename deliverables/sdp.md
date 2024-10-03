@@ -78,7 +78,7 @@ without affecting overall project deadlines.
 
 | Task                               |From Dates           | To Dates            | Reason                                               | 
 | -----------------------------------|---------------------|---------------------|------------------------------------------------------|
-| Requirement specification          |09-23-2024/09-24-2024|09-24-2024/10-07-2024|To proceed according to class schedule.               |
+| Requirement specification          |09-23-2024/09-24-2024|09-24-2024/10-08-2024|To proceed according to class schedule.               |
 | Wireframe Design	 			     |09-25-2024/10-02-2024|09-30-2024/10-17-2024|rescheduled following req. specification date.        |
 | Database scheme design             |09-25-2024/10-02-2024|09-30-2024/10-17-2024|rescheduled following req. specification date.        |
 | FrontEnd Development               |09-28-2024/11-10-2024|10-08-2024/11-10-2024|rescheduled following design specification date.      |
