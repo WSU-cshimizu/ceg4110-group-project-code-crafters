@@ -16,5 +16,6 @@ The scribe is the person taking the _notes_. This is encouraged to be a single p
 * After this, all members will begin working on the MVS, and the progress will be discussed in the next meeting.
 
 ## Signatures
-Sachin Patel 
+Sachin Patel  
+Dhruv Patel  
 
