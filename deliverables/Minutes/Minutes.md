@@ -12,10 +12,15 @@ The scribe is the person taking the _notes_. This is encouraged to be a single p
   * Design specifications
 
 ## Notes
-*Discussion on communication needed between different aspects of the implementation 
-<img src="./Images/IMG_0003.jpg" width=250 height=200>
+* Discussion on communication needed between different aspects of the implementation
 
-<img src="./Images/IMG_0005.jpg" width=250 height=200>
+## Swim Lane Diagram
+
+<img src="./Images/IMG_0003.jpg" width=300 height=300>
+
+## Userflow Diagram
+
+<img src="./Images/IMG_0005.jpg" width=300 height=300>
 
 
 
