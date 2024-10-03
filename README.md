@@ -11,11 +11,11 @@
 * Freshman
 * International
 #### Divyesh Ambaliya  
-* Undergrad 
-* Freshman
+* Undergraduate
+* Senior
 * International
 #### Michael Donahue
-* Undergrad
+* Undergraduate
 * Senior
 * Non-International
 #### Dhruv Patel  
