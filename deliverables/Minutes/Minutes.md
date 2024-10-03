@@ -13,9 +13,9 @@ The scribe is the person taking the _notes_. This is encouraged to be a single p
 
 ## Notes
 *Discussion on communication needed between different aspects of the implementation 
-![UserFlow](IMG_0003.jpg)
+![UserFlow](./Images/IMG_0003.jpg)
 
-![SwimLane](IMG_0005.jpg)
+![SwimLane](./Images/IMG_0005.jpg)
 
 ## Action Items
 * MVS and requirement specfication to be created 
