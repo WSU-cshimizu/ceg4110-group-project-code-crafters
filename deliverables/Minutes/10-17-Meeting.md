@@ -3,7 +3,7 @@
 ## Administrivia
 Time: 5:00pm - 5:40pm
 Location: Main Campus Library
-Scribe: Owen Hill
+Scribe: Sachin Patel 
 
 ## Agenda
 For User-stories & Developer-stories
