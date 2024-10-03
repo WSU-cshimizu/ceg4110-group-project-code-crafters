@@ -1,34 +1,24 @@
 
-# Meeting Minutes (DATE)
+# Meeting Minutes (10-1)
 
 ## Administrivia
 The scribe is the person taking the _notes_. This is encouraged to be a single person to reduce problems.
-* Time: 11:00 - 12:20
-* Location: Fawcett 204
-* Scribe: Michael Doahue
+* Time: 6:00-7:00
+* Location: Virtual
+* Scribe: Michael Donahue
 
 ## Agenda
-* Item 1
-  * Sub-item 1:
+* Discussed data flow diagram 
+  * Design specifications
   * ...
 * ...
 
 ## Notes
-* Person 1: _statement_
-  * Person 3: _follow on statement_
-* Person 2: _statement_
-* ...
+*Discussion on communication needed between different aspects of the implementation 
 
 ## Action Items
-These are generally distilled from the notes. Essentially, these are "by the next meetings, _this person_ will take _this action_."
-* Person 1
-  * Item 1
-  * Item 2
-* Person 2
-  * ...
-* ...
+* MVS and requirement specfication to be created 
+* Wireframe schema 
 
 ## Signatures
-After the notes and action items have been pushed, each person should take a time to review them. If everything is agreeable, push a single commit with your name as a signature. 
-* Person 1
-* ...
+Michael Donahue, 
