@@ -21,10 +21,10 @@ We use Discord for virtual discussions, while important updates or information a
 ![Gantt chart](image.png)
 
 **MVS:**
-21st September to 30th September 2024
+21st September to 8th October 2024
 
 **Requirement Specification:**
-24th September to 4th October 2024
+24th September to 8th October 2024
 
 **Design Specification:**
 30th September to 7th October 2024

@@ -3,8 +3,8 @@
 
 ## Administrivia
 The scribe is the person taking the _notes_. This is encouraged to be a single person to reduce problems.
-* Time: 6:00-7:00
-* Location: Virtual
+* Time: 11:00-12:20
+* Location: Fawcett 204
 * Scribe: Michael Donahue
 
 ## Agenda
