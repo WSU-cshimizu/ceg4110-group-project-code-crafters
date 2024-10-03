@@ -24,10 +24,10 @@ We use Discord for virtual discussions, while important updates or information a
 21st September to 8th October 2024
 
 **Requirement Specification:**
-24th September to 8th October 2024
+initial draft submission: 24th September to 8th October 2024
 
 **Design Specification:**
-30th September to 7th October 2024
+Initial draft submission: 30th September to 8th October 2024
 
 
 **Milestones**
