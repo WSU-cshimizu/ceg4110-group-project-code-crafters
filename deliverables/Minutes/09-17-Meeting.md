@@ -1,4 +1,4 @@
-# Meeting Minutes (10-17)
+# Meeting Minutes (09-17)
 
 ## Administrivia
 The scribe is the person taking the _notes_. This is encouraged to be a single person to reduce problems.
