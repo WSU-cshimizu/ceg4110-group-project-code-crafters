@@ -24,10 +24,10 @@ We use Discord for virtual discussions, while important updates or information a
 21st September to 8th October 2024
 
 **Requirement Specification:**
-24th September to 8th October 2024
+initial draft submission: 24th September to 8th October 2024
 
 **Design Specification:**
-30th September to 7th October 2024
+Initial draft submission: 30th September to 8th October 2024
 
 
 **Milestones**
@@ -78,7 +78,7 @@ without affecting overall project deadlines.
 
 | Task                               |From Dates           | To Dates            | Reason                                               | 
 | -----------------------------------|---------------------|---------------------|------------------------------------------------------|
-| Requirement specification          |09-23-2024/09-24-2024|09-24-2024/10-07-2024|To proceed according to class schedule.               |
+| Requirement specification          |09-23-2024/09-24-2024|09-24-2024/10-08-2024|To proceed according to class schedule.               |
 | Wireframe Design	 			     |09-25-2024/10-02-2024|09-30-2024/10-17-2024|rescheduled following req. specification date.        |
 | Database scheme design             |09-25-2024/10-02-2024|09-30-2024/10-17-2024|rescheduled following req. specification date.        |
 | FrontEnd Development               |09-28-2024/11-10-2024|10-08-2024/11-10-2024|rescheduled following design specification date.      |
