@@ -6,9 +6,9 @@ The system will allow students to participate in student elections by voting onl
 ### User-Stories
 - As a student, I want to securely cast my vote online so that I can easily participate in the election.
 - As a student, I want to receive confirmation after submitting my vote, so I know it has been successfully recorded. 
-- As a student, I want access to the voting schedule and deadlines, so I am aware of when to vote. 
+- As a student, I want to register and login to the system.
 - As an election administrator, I want to create and manage elections, including adding candidates, to ensure the process runs smoothly.
-- As an election administrator, I want to review the results when the voting period ends so I can announce the winners.
+- As a student, I want to browse through elections and know more about the candidates participating in the elections.
 
 
 ### Developer stories
