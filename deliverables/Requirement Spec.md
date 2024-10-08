@@ -13,8 +13,8 @@ As a student, I want to receive confirmation after submitting my vote, so I know
 * Requirement 2.2:
 
 ### User Story 3
-As a student, I want access to the voting schedule and deadlines, so I am aware of when to vote.
-* Requirement 3.1: The User interface will include a schedule showing first and last day to vote.
+As a student, I want to register and login to the system.
+* Requirement 3.1: The User interface shall include register and login form.
 
 * Requirement 3.2:
 
@@ -25,8 +25,8 @@ As an election administrator, I want to create and manage elections, including a
 * Requirement 4.2:
 
 ### User Story 5
-As an election administrator, I want to review the results when the voting period ends so I can announce the winners.
-* Requirement 5.1: Administrators shall be given final voting results in an organized document allowing easy readablilty of the results.
+As a student, I want to browse through elections and know more about the candidates participating in the elections.
+* Requirement 5.1: Student shall have access to all the details about the election and candidates.
   
 * Requirement 5.2:
 
