@@ -61,13 +61,17 @@ The User's credentials shall be validated with the database to ensure security.
 
 
 **Requirement 4.1**   
-The system shall provide an administrative interface for managing election candidates.
-* Design Statement
-  * Design Statement
-* Design Statement
+The system shall provide an administrative interface for managing election.
+* Login to Admin side
+  * Navigate to Elections page
+  * Click on *Add Election* button to add new election
+  * Browse through the table of elections that are added in the system
+  * Manage the elecitons by editing or deleting it
+* Designs:    
+<img src="./assets/wireframes/admin-elections.png" width=600 height=300>
 
 **Requirement 4.2**  
-Administrators shall be able to add, edit, or remove candidates from the election.
+Administrators shall be able to add and remove candidates from the election.
 * Design Statement
   * Design Statement
 

@@ -23,9 +23,9 @@
 
 ### User Story 4
 >**As an election administrator, I want to create and manage elections, including adding candidates, to ensure the process runs smoothly.**
-* Requirement 4.1: The system shall provide an administrative interface for managing election candidates.
+* Requirement 4.1: The system shall provide an administrative interface for managing elections.
 
-* Requirement 4.2: Administrators shall be able to add, edit, or remove candidates from the election.
+* Requirement 4.2: Administrators shall be able to add and remove candidates from the election.
 
 ### User Story 5
 >**As a student, I want to browse through elections and know more about the candidates participating in the elections.**
