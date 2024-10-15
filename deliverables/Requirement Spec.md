@@ -27,8 +27,6 @@
 
 * Requirement 4.2: Administrators shall be able to add, edit, or remove candidates from the election.
 
-* Requirement 4.3: The system shall allow administrators to set and modify voting periods for each election.
-
 ### User Story 5
 >**As a student, I want to browse through elections and know more about the candidates participating in the elections.**
 * Requirement 5.1: Students shall have access to all the details about the election and candidates.
