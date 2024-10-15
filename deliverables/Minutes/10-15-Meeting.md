@@ -1,5 +1,5 @@
 
-# Meeting Minutes (10-03)
+# Meeting Minutes (10-07)
 
 ## Administrivia
 The scribe is the person taking the _notes_. This is encouraged to be a single person to reduce problems.
@@ -26,3 +26,4 @@ The scribe is the person taking the _notes_. This is encouraged to be a single p
 ## Signatures
 Prashant Rai  
 Michael Donahue
+Divyesh Ambaliya
