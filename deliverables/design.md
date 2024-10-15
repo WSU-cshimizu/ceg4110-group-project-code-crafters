@@ -10,8 +10,13 @@ A User's vote shall be cast to a database where all votes are pooled
 
 **Requirement 1.2**  
 The system shall provide a secure interface for students to cast their votes.
-* Design Statement
-  * Design Statement
+* Cast your vote
+  * Navigate to desired election
+  * *View details* of the election
+  * Fill up the voting form presented for that selected election which is at the bottom of the page
+* Wireframe Designs:    
+<img src="./assets/wireframes/Elections-Details.png" width=400 height=400>
+
 
 **Requirement 1.3**  
 The system shall ensure that all votes are encrypted before being stored.
@@ -25,8 +30,8 @@ A confirmation message shall be displayed immediately after vote submission.
   * Press Vote button
   * A confirmation pop-up dialog box is displayed
 
-* Designs:    
-<img src="./assets/wireframes/popup.png" width=800 height=300>
+* Wireframe Designs:    
+<img src="./assets/wireframes/popup.png" width=500 height=400>
 
 **Requirement 2.2**  
 The system shall send an email to the voter once the vote has been succesfully recorded.
@@ -35,8 +40,8 @@ The system shall send an email to the voter once the vote has been succesfully r
   * Press Vote button
   * A confirmation email is sent
 
-* Designs:    
-<img src="./assets/wireframes/email.png" width=900 height=300>
+* Wireframe Designs:    
+<img src="./assets/wireframes/email.png" width=550 height=400>
 
 **Requirement 3.1**   
 The User interface shall include register and login form.
@@ -46,7 +51,7 @@ The User interface shall include register and login form.
 * Login into the system  
   * Enter email and password in student login form
   * Press login button
-* Designs:    
+* Wireframe Designs:    
 <img src="./assets/wireframes/students-Login_Registration.png" width=800 height=300>
 
 **Requirement 3.2**  
@@ -56,7 +61,7 @@ The User's credentials shall be validated with the database to ensure security.
   * Press login button
   * credentials is checked
   * Invalid credentials displays error message
-* Designs:    
+* Wireframe Designs:    
 <img src="./assets/wireframes/credentials.png" width=300 height=300>
 
 
@@ -67,14 +72,25 @@ The system shall provide an administrative interface for managing election.
   * Click on *Add Election* button to add new election
   * Browse through the table of elections that are added in the system
   * Manage the elecitons by editing or deleting it
-* Designs:    
+* Wireframe Designs:    
 <img src="./assets/wireframes/admin-elections.png" width=600 height=300>
 
 **Requirement 4.2**  
 Administrators shall be able to add and remove candidates from the election.
-* Design Statement
-  * Design Statement
+* Adding candidates
+  * Navigate to candidate addition section in admin-side
+  * Select a desired elections from the drop-down options of all the registered elections
+  * Select a candidate from the drop-down options of all the registered user that will be assigned as candidate
+  * Press add button to add the candidate to that particular selected election
 
+* Editing and Deleting candidates
+  * Navigate to candidates in admin-side
+  * Browse through all the candidates in their respective elections listed in the table
+  * Press the icon with blue pointed arrow to edit the candidate
+  * Press the icon with red pointed arrow to delete the candidate
+
+* Wireframe Designs:    
+<img src="./assets/wireframes/admin-addcandidates.png" width=1200 height=300>
 
 
 **Requirement 5.1**   
@@ -84,7 +100,7 @@ Student shall have access to all the details about the election and election det
   * Browse through elections
   * Press the *view details* button of the desired election
   * Details of the selected election is displayed in a new page
-* Designs:    
+* Wireframe Designs:    
 <img src="./assets/wireframes/Elections.png" width=300 height=300>
 <img src="./assets/wireframes/Elections-Details.png" width=300 height=300>
 
@@ -95,7 +111,7 @@ The user interface shall provide an option to view descriptions of each candidat
   * Browse through candidates
   * Press anywhere on the conatiner box of desired candidate
   * Details of the selected candidate is displayed in a new page
-* Designs:    
+* Wireframe Designs:    
 <img src="./assets/wireframes/Candidates.png" width=300 height=300>
 <img src="./assets/wireframes/Candidates-Details.png" width=300 height=300>
 
