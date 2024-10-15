@@ -81,7 +81,7 @@ Student shall have access to all the details about the election and election det
   * Press the *view details* button of the desired election
   * Details of the selected election is displayed in a new page
 * Designs:    
-<img src="./assets/wireframes/elections.png" width=300 height=300>
+<img src="./assets/wireframes/Elections.png" width=300 height=300>
 <img src="./assets/wireframes/Elections-Details.png" width=300 height=300>
 
 **Requirement 5.2**  
