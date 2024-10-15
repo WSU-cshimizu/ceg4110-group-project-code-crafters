@@ -18,6 +18,6 @@ The scribe is the person taking the _notes_. This is encouraged to be a single p
 ## Signatures
 Sachin Patel  
 Dhruv Patel  
-Michael Donahue
+Michael Donahue  
 Divyesh Ambaliya
 
