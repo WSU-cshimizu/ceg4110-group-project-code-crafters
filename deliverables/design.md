@@ -4,9 +4,15 @@
 
 **Requirement 1.1**   
 A User's vote shall be cast to a database where all votes are pooled
-* Design Statement
-  * Design Statement
-* Design Statement
+* Vote Database
+  * A model created for the votes to be stored
+  * User votes from the voting form of the desired election
+  * the vote is stored in the database where model of the votes is created.
+* Flowchart Designs:    
+<img src="./assets/flowchart/req1storevote.png" width=300 height=350>
+
+* Sequence Designs:    
+<img src="./assets/sequence-diagram/req1storevoteSeq.png" width=400 height=400>
 
 **Requirement 1.2**  
 The system shall provide a secure interface for students to cast their votes.
@@ -17,11 +23,10 @@ The system shall provide a secure interface for students to cast their votes.
 * Wireframe Designs:    
 <img src="./assets/wireframes/Elections-Details.png" width=400 height=400>
 
+* Flowchart Designs:    
+<img src="./assets/flowchart/req1storevote.png" width=300 height=350>
 
-**Requirement 1.3**  
-The system shall ensure that all votes are encrypted before being stored.
-* Design Statement
-  * Design Statement
+
 
 **Requirement 2.1**   
 A confirmation message shall be displayed immediately after vote submission.
@@ -33,6 +38,9 @@ A confirmation message shall be displayed immediately after vote submission.
 * Wireframe Designs:    
 <img src="./assets/wireframes/popup.png" width=500 height=400>
 
+* Flowchart Designs:    
+<img src="./assets/flowchart/popup.png" width=350 height=350>
+
 **Requirement 2.2**  
 The system shall send an email to the voter once the vote has been succesfully recorded.
 * Vote
@@ -42,6 +50,9 @@ The system shall send an email to the voter once the vote has been succesfully r
 
 * Wireframe Designs:    
 <img src="./assets/wireframes/email.png" width=550 height=400>
+
+* Flowchart Designs:    
+<img src="./assets/flowchart/email.png" width=350 height=350>
 
 **Requirement 3.1**   
 The User interface shall include register and login form.
@@ -54,6 +65,9 @@ The User interface shall include register and login form.
 * Wireframe Designs:    
 <img src="./assets/wireframes/students-Login_Registration.png" width=800 height=300>
 
+* Sequence Designs:    
+<img src="./assets/sequence-diagram/login-registration.png" width=350 height=280>
+
 **Requirement 3.2**  
 The User's credentials shall be validated with the database to ensure security.
 * Logining
@@ -63,6 +77,10 @@ The User's credentials shall be validated with the database to ensure security.
   * Invalid credentials displays error message
 * Wireframe Designs:    
 <img src="./assets/wireframes/credentials.png" width=300 height=300>
+
+* Sequence Designs:    
+<img src="./assets/sequence-diagram//login-errors.png" width=300 height=180>
+
 
 
 **Requirement 4.1**   

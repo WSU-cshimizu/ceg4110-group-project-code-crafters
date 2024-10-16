@@ -7,7 +7,6 @@
 
 * Requirement 1.2: The system shall provide a secure interface for students to cast their votes.
 
-* Requirement 1.3: The system shall ensure that all votes are encrypted before being stored.
 
 ### User Story 2
 >**As a student, I want to receive confirmation after submitting my vote, so I know it has been successfully recorded.**
