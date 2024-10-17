@@ -151,9 +151,11 @@ The user interface shall provide an option to view descriptions of each candidat
 
 **Requirement 6.1**   
 The system shall implement secure API endpoints for communication between the frontend and the database.
-* Design Statement
-  * Design Statement
-* Design Statement
+* Web app communicates with API 
+* API communicates with backend & database
+* database communicates with backend and API
+
+<img src="./assets/sequence-diagram/6.1.png" width=400 height=300>
 
 **Requirement 7.1**   
 The system shall ensure data integrity and security during data transmission.
