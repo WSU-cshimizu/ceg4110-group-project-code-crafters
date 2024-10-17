@@ -93,6 +93,9 @@ The system shall provide an administrative interface for managing election.
 * Wireframe Designs:    
 <img src="./assets/wireframes/admin-elections.png" width=600 height=300>
 
+* Flowchart Designs:    
+<img src="./assets/flowchart/modify-elections.png" width=400 height=400>
+
 **Requirement 4.2**  
 Administrators shall be able to add and remove candidates from the election.
 * Adding candidates
@@ -110,6 +113,10 @@ Administrators shall be able to add and remove candidates from the election.
 * Wireframe Designs:    
 <img src="./assets/wireframes/admin-addcandidates.png" width=1200 height=300>
 
+* Flowchart Designs:    
+<img src="./assets/flowchart/modify-candidates.png" width=400 height=400>
+
+
 
 **Requirement 5.1**   
 Student shall have access to all the details about the election and election details
@@ -122,6 +129,9 @@ Student shall have access to all the details about the election and election det
 <img src="./assets/wireframes/Elections.png" width=300 height=300>
 <img src="./assets/wireframes/Elections-Details.png" width=300 height=300>
 
+* Flowchart Designs:    
+<img src="./assets/flowchart/elections-details.png" width=300 height=300>
+
 **Requirement 5.2**  
 The user interface shall provide an option to view descriptions of each candidate.
 * Browse candidates
@@ -132,6 +142,9 @@ The user interface shall provide an option to view descriptions of each candidat
 * Wireframe Designs:    
 <img src="./assets/wireframes/Candidates.png" width=300 height=300>
 <img src="./assets/wireframes/Candidates-Details.png" width=300 height=300>
+
+* Flowchart Designs:    
+<img src="./assets/flowchart/candidates-details.png" width=250 height=400>
 
 
 ## Requirement: Developer stories
