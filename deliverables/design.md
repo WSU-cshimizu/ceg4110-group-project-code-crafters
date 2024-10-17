@@ -159,13 +159,13 @@ The system shall implement secure API endpoints for communication between the fr
 
 **Requirement 7.1**   
 The system shall ensure data integrity and security during data transmission.
-* Design Statement
-  * Design Statement
-* Design Statement
+* Usernames and passwords will be verified
+  * Database will be queried to verify existing student
+  
 
 **Requirement 8.1**   
 The system shall define a database structure that efficiently handles voter data, candidate profiles, and election results.
-* Design Statement
+* 
   * Design Statement
 * Design Statement
 
@@ -218,25 +218,22 @@ The system must undergo penetration testing to identify vulnerabilities.
 
 **Requirement 12.1**   
 The system shall conduct usability testing sessions with students to gather feedback on the voting interface.
-* Design Statement
-  * Design Statement
-* Design Statement
+* Testing sessions
+  * Every feature of the UI will be tested by all students who will give feedback to ensure that the user interface is intuitive
 
 **Requirement 12.2**   
 Adjustments shall be made based on user feedback to enhance usability.
-* Design Statement
-  * Design Statement
-* Design Statement
+* Voter feedback 
+  * Once voter feedback has been submitted, the feedback will be sent to the developers
 
 **Requirement 13.1**   
 The system shall be tested under high user loads to confirm its ability to handle multiple concurrent users.
-* Design Statement
-  * Design Statement
-* Design Statement
+* System durability
+  * Stress test using linux to be able to send increasingly higher queries to ensure system stability
 
 
 **Requirement 13.2**   
 Performance benchmarks shall be established for system responsiveness.
-* Design Statement
-  * Design Statement
-* Design Statement
+* Benchmark tests 
+  * Open website on multiple different browsers
+  * Test opening website on different devices to test responsiveness 
