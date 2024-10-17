@@ -17,4 +17,6 @@
 
 ## Teaching Differences
 
-* 
+* Todd prefers a straightforward approach to development and dislikes branching strategies, as they can complicate workflows and slow progress.
+
+* He emphasizes maintaining simplicity in version control, encouraging direct, iterative updates over managing multiple branches.
