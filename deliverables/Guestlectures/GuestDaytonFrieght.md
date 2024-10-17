@@ -17,3 +17,9 @@ analyze various factors that can benefit all the users and satisfy the customer.
 can do our job appropriately and concisely. As to not push the timeline meet the requirements.
 
 * Using agile methodologies is the best way to approach as a software development
+
+## Teaching Differences
+
+* Tim's user stories prioritize production-readiness, while class discussions centered on user needs and their motivations.
+
+* The corporate-driven approach of user stories in this context contrasts with a more user-centered perspective taught in class.
