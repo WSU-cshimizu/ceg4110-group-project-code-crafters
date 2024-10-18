@@ -183,38 +183,41 @@ The system shall provide a user-friendly interface for students to browse candid
 
 **Requirement 9.2**   
 The interface must be tested for responsiveness on various devices.
-* Design Statement
-  * Design Statement
-* Design Statement
+* Device responsiveness in different browser
+  * Open different type of browers like chrome, microsoft edge, brave etc
+  * Run the site on all the browers
+  * All the UI/UX should be same
+
 
 **Requirement 10.1**   
 The system shall ensure the voting experience is simple, accessible, and mobile-friendly.
-* Design Statement
-  * Design Statement
-* Design Statement
+* Mobile responsiveness
+  * Use a mobile i.e. both andriod and ios
+  * Open the site on multiple browser on both device
+  * UI might differ than window version but functionality should be unchanged
+
 
 **Requirement 10.2**   
 User feedback shall be collected to improve the voting interface.
-* Design Statement
-  * Design Statement
-* Design Statement
+* Send Feedback (does not need login)
+  * Scroll till the bottom of the homepage
+  * Fill up the feedback form with user's name, email and feedback message
+  * Press *send* button to submit the form
 
+* Wireframe design:  
+<img src="./assets/wireframes/HOME.png" width=600 height=1200>
 
+* Flowchart Designs:    
+<img src="./assets/flowchart/feedback.png" width=250 height=350>
 
 ## Requirement: Testing
 
 **Requirement 11.1**   
 The system shall be tested to prevent duplicate votes by attempting multiple submissions from a single user.
-* Design Statement
-  * Design Statement
-* Design Statement
-
-
-**Requirement 11.2**   
-The system must undergo penetration testing to identify vulnerabilities.
-* Design Statement
-  * Design Statement
-* Design Statement
+* Eradicate Duplication
+  * Vote using voting form
+  * System compares if the user has already voted for that election or not by comparing user id.
+  * Vote completes if not present else throws error
 
 **Requirement 12.1**   
 The system shall conduct usability testing sessions with students to gather feedback on the voting interface.
@@ -225,6 +228,7 @@ The system shall conduct usability testing sessions with students to gather feed
 Adjustments shall be made based on user feedback to enhance usability.
 * Voter feedback 
   * Once voter feedback has been submitted, the feedback will be sent to the developers
+  * Depending upon the state of the project, the feedback will be implemented to the project
 
 **Requirement 13.1**   
 The system shall be tested under high user loads to confirm its ability to handle multiple concurrent users.

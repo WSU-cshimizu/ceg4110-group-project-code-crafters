@@ -60,7 +60,6 @@
 ### Testing Story 1 
 >**As a test engineer, I want to validate the system’s security by attempting to cast multiple votes to confirm it can prevent duplicates.**
 * Requirement 11.1: The system shall be tested to prevent duplicate votes by attempting multiple submissions from a single user.
-* Requirement 11.2: The system must undergo penetration testing to identify vulnerabilities.
 
 ### Testing Story 2
 >**As a test engineer, I want to conduct usability testing with students to ensure the voting interface is clear and easy to use.**
