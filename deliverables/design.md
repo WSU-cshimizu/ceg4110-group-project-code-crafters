@@ -17,11 +17,13 @@ A User's vote shall be cast to a database where all votes are pooled
 **Requirement 1.2**  
 The system shall provide a secure interface for students to cast their votes.
 * Cast your vote
-  * Navigate to desired election
-  * *View details* of the election
-  * Fill up the voting form presented for that selected election which is at the bottom of the page
+  * Navigate to election voting ballot
+  * Browse for your favorite candidate for desired post
+  * Select the candidate by clicking the *radio button* infront of each candidate
+  * After Selecting, press *vote button* at the bottom of the page
+
 * Wireframe Designs:    
-<img src="./assets/wireframes/Elections-Details.png" width=400 height=400>
+<img src="./assets/wireframes/Voting-Ballot.png" width=500 height=400>
 
 * Flowchart Designs:    
 <img src="./assets/flowchart/req1storevote.png" width=300 height=350>
@@ -31,12 +33,12 @@ The system shall provide a secure interface for students to cast their votes.
 **Requirement 2.1**   
 A confirmation message shall be displayed immediately after vote submission.
 * Vote
-  * Enter desired candidate's credentials
+  * Select candidate
   * Press Vote button
   * A confirmation pop-up dialog box is displayed
 
 * Wireframe Designs:    
-<img src="./assets/wireframes/popup.png" width=500 height=400>
+<img src="./assets/wireframes/popup.png" width=800 height=450>
 
 * Flowchart Designs:    
 <img src="./assets/flowchart/popup.png" width=350 height=350>
@@ -44,12 +46,12 @@ A confirmation message shall be displayed immediately after vote submission.
 **Requirement 2.2**  
 The system shall send an email to the voter once the vote has been succesfully recorded.
 * Vote
-  * Enter desired candidate's credentials
+  * Select desired candidate
   * Press Vote button
   * A confirmation email is sent
 
 * Wireframe Designs:    
-<img src="./assets/wireframes/email.png" width=550 height=400>
+<img src="./assets/wireframes/email.png" width=900 height=480>
 
 * Flowchart Designs:    
 <img src="./assets/flowchart/email.png" width=350 height=350>
@@ -126,8 +128,7 @@ Student shall have access to all the details about the election and election det
   * Press the *view details* button of the desired election
   * Details of the selected election is displayed in a new page
 * Wireframe Designs:    
-<img src="./assets/wireframes/Elections.png" width=300 height=300>
-<img src="./assets/wireframes/Elections-Details.png" width=300 height=300>
+<img src="./assets/wireframes/Elections.png" width=300 height=350>
 
 * Flowchart Designs:    
 <img src="./assets/flowchart/elections-details.png" width=300 height=300>
@@ -140,8 +141,7 @@ The user interface shall provide an option to view descriptions of each candidat
   * Press anywhere on the conatiner box of desired candidate
   * Details of the selected candidate is displayed in a new page
 * Wireframe Designs:    
-<img src="./assets/wireframes/Candidates.png" width=300 height=300>
-<img src="./assets/wireframes/Candidates-Details.png" width=300 height=300>
+<img src="./assets/wireframes/Candidates.png" width=300 height=350>
 
 * Flowchart Designs:    
 <img src="./assets/flowchart/candidates-details.png" width=250 height=400>
