@@ -17,6 +17,6 @@
 * Winsupply wants a baseline 163% return on projects
 
 ## Teaching Differences
-* Depending on the type of team and the type of project, different software development frameworks might work way better than another
+* Depending on the type of team and the type of project, different software development methodology might work way better than another
 
-* 
+* Chris encourages developers, organizations to adapt to trends as even till this date, people dont want to change their working systems/workflow just because its comfortable.
