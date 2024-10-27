@@ -33,15 +33,15 @@ Initial draft submission: 30th September to 17th October 2024
 **Milestones**
 - Front-End Development: 
     Voter authentication, candidate viewing, ballot design, and voting submission.
-    Framework: React.js for building an interactive, responsive interface.
+    Framework: HTML, CSS and Javascript for building an interactive, responsive interface.
 
 - Back-End Development:
 	Admin dashboard for creating elections, managing candidates, and monitoring votes.
 	Secure vote counting, real-time results, and voter eligibility verification.
-	Framework: Django or Node.js for managing user data, security, and interactions with the database.
+	Framework: Python Django framwork for managing user data, security, and interactions with the database.
 
 - Database Development:
-	Database scheme (PostgreSQL or MySQL for relational data management)
+	Database scheme (PostgreSQL or SQLlite for relational data management)
 	Program wireframe
 
 - Deployment:
