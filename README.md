@@ -23,7 +23,7 @@
 * International
 
 
-## File & Folder Structure
+## File & Folder Structure and descriptions
 
 1) General overall images
     - **Location**: deliverables/assets
@@ -48,3 +48,6 @@
 
 8) Images of Meeting minutes
     - **Location**: deliverables/Minutes/images
+
+9) voteOnline
+    - **Description**: Main project folder
