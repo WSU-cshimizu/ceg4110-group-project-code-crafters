@@ -1,0 +1,65 @@
+{% load static %}
+
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  
+    <title>WSU VoteOnline - Vote your favourite Leaders</title>
+  
+    <meta name="description" content="A project for a secure and accessible voting elections made for students by CODE CRAFTERS">
+    
+    <!-- CSS -->
+
+    <link href="{% static 'landingpage/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="{% static 'landingpage/css/style.css' %}" rel="stylesheet">
+
+    <!-- ICONS -->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+    
+    <!-- FAVICONS -->
+    <link rel="icon" type="image/x-icon" href="{% static 'voLogo.png' %}" />
+
+    <!-- FONTS -->
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+
+
+  
+  </head>
+  
+  <body data-aos-easing="ease-in-out" data-aos-duration="1000" data-aos-delay="0">
+    <header id="header" class="header fixed-top header-scrolled">
+      <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+  
+        <a href="/" class="logo d-flex align-items-center">
+                  <img src="{% static 'navlogo.png' %}" alt="">
+                  
+                  
+        </a>
+  
+        <nav id="navbar" class="navbar">
+          <ul>
+            <li><a class="nav-link scrollto" href="#hero">Home</a></li>
+            <li><a class="nav-link scrollto" href="#about">About</a></li>
+            <li><a class="nav-link scrollto active" href="#services">Services</a></li>
+            
+            <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+            <li><a class="getstarted scrollto" href="{% url 'login' %}">VOTE</a></li>        
+              
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+      </div>
+    </header>
+  
+
+  
+
+</body>
+</html>
