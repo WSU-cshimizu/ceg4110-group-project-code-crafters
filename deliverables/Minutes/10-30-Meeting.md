@@ -29,5 +29,6 @@ The scribe is the person taking the _notes_. This is encouraged to be a single p
 ## Signatures
 Prashant Rai  
 Sachin Patel  
-Divyesh Ambaliya
+Divyesh Ambaliya <br>
+Dhruv Patel
 
