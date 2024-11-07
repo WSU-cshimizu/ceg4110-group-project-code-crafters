@@ -20,10 +20,10 @@
                              {% csrf_token %}
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
-                                Email
+                                {{ Registration_Form.email }}
                                 </div>
                                 <div class="col-sm-6 mb-3 mb-sm-0">
-                                Department
+                                {{ Registration_Form.department }}
                                 </div>
                             </div>
                             <ul style="font-size:13px; list-style: none;">
@@ -31,15 +31,15 @@
                             </ul>
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
-                                    FirstName
+                                    {{ Registration_Form.first_name }}
                                 </div>
                                 <div class="col-sm-6">
-                                    Lastname
+                                    {{ Registration_Form.last_name }}
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
-                                    Password
+                                    {{ Registration_Form.password }}
                                 </div>
                                 <div class="col-sm-6">
                                     <input type="password" name="password2" class="form-control form-control-user" placeholder="Confirm Password">
@@ -47,7 +47,7 @@
                             </div>
                             <div class="help" id="id_password1_helptext">
                                 <ul style="font-size: 13px;">
-                                    <li>Only SNSU Gsuite email accepted.</li>
+                                    <li>Only WSU Gsuite email accepted."example: abc@wright.edu"</li>
                                     <li>Password can’t be too similar to other personal information.</li>
                                     <li>Password must contain at least 8 characters.</li>
                                     <li>Password can’t be a commonly used password.</li>
