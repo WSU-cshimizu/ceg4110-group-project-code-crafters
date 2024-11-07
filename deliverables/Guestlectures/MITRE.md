@@ -5,7 +5,7 @@
 
 ## Pertinent Questions
 * Question 1 - Are there any plans for MITRE to build a quantum computer?
-* Question 2 - 
+* Question 2 - What skill that you have learned was the hardest to learn and be proficient with?
 
 ## Lessons Learned
 
