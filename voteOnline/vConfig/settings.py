@@ -109,4 +109,8 @@ STATICFILES_DIRS = [
     "mainApp/static",
 ]
 
+OTP = False
+OTP_EMAIL = "wsuvoteonline@gmail.com"
+OTP_PASSWORD = "dfyrkspgkcwttqyy"
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
