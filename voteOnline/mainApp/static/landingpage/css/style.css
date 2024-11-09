@@ -136,7 +136,7 @@ section {
   line-height: 0;
 }
 .back-to-top:hover {
-  background: #6776f4;
+  background: #003ce8;
   color: #fff;
 }
 .back-to-top.active {
@@ -344,11 +344,13 @@ section {
   color: #012970;
 }
 .navbar-mobile a:hover, .navbar-mobile .active, .navbar-mobile li:hover > a {
-  color: #2D652C;
+  color: #003ce8;
 }
 .navbar-mobile .getstarted, .navbar-mobile .getstarted:focus {
   margin: 15px;
 }
+
+
 .navbar-mobile .dropdown ul {
   position: static;
   display: none;
@@ -712,17 +714,28 @@ section {
   font-size: 18px;
 }
 .services .service-box.blue {
-  border-bottom: 3px solid #2db6fa;
+  border-bottom: 3px solid #060546;
 }
 .services .service-box.blue .icon {
   color: #2db6fa;
   background: #dbf3fe;
 }
-.services .service-box.blue .read-more {
-  color: #2db6fa;
+
+/* candidate box */
+.can-box.hov {
+  border-bottom: 3px solid #060546;
 }
+
+/* Apply background color on hover */
+.can-box.hov:hover {
+  color: #ffffff;
+  background: #060546;
+}
+
+
 .services .service-box.blue:hover {
-  background: #2db6fa;
+  color: #ffffff;
+  background: #060546;
 }
 .services .service-box.orange {
   border-bottom: 3px solid #f68c09;
