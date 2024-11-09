@@ -111,8 +111,8 @@ def login_view(request):
                 login(request, user)
                 user = request.user
                 user.verified = True
-                Records.objects.create(owner=user, department="Main Branch")
-                Records.objects.create(owner=user, department=user.department)
+                UserRecords.objects.create(owner=user, department="Main Branch")
+                UserRecords.objects.create(owner=user, department=user.department)
                 user.save()
                 sweetify.success(request, 'Login Successfully')
                 return HttpResponseRedirect(reverse('home'))
@@ -135,8 +135,8 @@ def verify(request):
         if otp == user.otp:
             user = request.user
             user.verified = True
-            Records.objects.create(owner=user, department=user.department)
-            Records.objects.create(owner=user, department='Main Branch')
+            UserRecords.objects.create(owner=user, department=user.department)
+            UserRecords.objects.create(owner=user, department='Main Branch')
             user.save()
             sweetify.success(request, 'Login Successfully')
             return HttpResponseRedirect(reverse('home'))
