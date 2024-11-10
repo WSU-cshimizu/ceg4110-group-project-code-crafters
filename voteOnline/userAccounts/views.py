@@ -2,7 +2,7 @@ from django.shortcuts import render, HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
 from django.urls import reverse
 from .forms import *
-from main.models import *
+from mainApp.models import *
 from django.conf import settings
 import sweetify
 import random as r
