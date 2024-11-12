@@ -101,3 +101,38 @@ def profile(request, pk):
         'profile': profile,
     }
     return render(request, 'main/profile.html', context)
+
+@user_passes_test(lambda u: u.is_superuser)
+def dashboard(request):
+    maincandidates =  MAIN_Candidate.objects.all().count()
+    CECScandidates = CECS_Candidate.objects.all().count()
+    CSMcandidates = CSM_Candidate.objects.all().count()
+    CLAcandidates = CLA_Candidate.objects.all().count()
+    CBUScandidates = CBUS_Candidate.objects.all().count()
+    totalcandidates = maincandidates + CECScandidates + CSMcandidates + CLAcandidates + CBUScandidates
+    voted_department = Account.objects.filter(voted_department=True).count()
+    voted_main = Account.objects.filter(voted_main=True).count()
+    context = {
+        'title': 'Dashboard',
+
+        'totalcandidates': totalcandidates,
+
+        'main': MAIN_Candidate.objects.all(),
+        'maincandidates': maincandidates,
+
+        'CECS': CECS_Candidate.objects.all(),
+        'CECScandidates': CECScandidates,
+
+        'CSM': CSM_Candidate.objects.all(),
+        'CSMcandidates': CSMcandidates,
+
+        'CLA': CLA_Candidate.objects.all(),
+        'CLAcandidates': CLAcandidates,
+
+        'CBUS': CBUS_Candidate.objects.all(),
+        'CBUScandidates': CBUScandidates,
+        
+        'registered': Account.objects.filter(is_superuser=False).count(),
+        'voted': voted_department + voted_main,
+    }
+    return render(request, 'main/dashboard.html', context)
