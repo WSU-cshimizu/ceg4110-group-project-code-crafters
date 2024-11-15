@@ -106,3 +106,22 @@ def CSM_voter_or_superuser(function):
             return HttpResponseRedirect('/')
 
   return wrap
+
+
+def CSM_schedule_or_superuser(function):
+     @wraps(function)
+     def wrap(request, *args, **kwargs):
+          try:
+               schedule = votingschedule.objects.get(department='CSM')
+               start = schedule.start
+               end = schedule.end
+               today = datetime.datetime.now().date()
+               if today >= start and today <= end or request.user.is_superuser:
+                    return function(request, *args, **kwargs)
+               else:
+                    sweetify.error(request, 'Kindly wait for the schedule!')
+                    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+          except:
+               sweetify.error(request, 'There is no schedule posted yet!')
+               return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+     return wrap
