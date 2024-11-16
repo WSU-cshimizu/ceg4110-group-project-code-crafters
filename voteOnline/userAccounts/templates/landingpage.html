@@ -29,7 +29,43 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
 
- 
+    <style>
+      .slider-container {
+        overflow: hidden; /* Hide the overflow to create the sliding effect */
+        position: relative;
+        width: 100%;
+      }
+      
+      .slider-track {
+        display: flex;
+        animation: slide 20s linear infinite; /* Smooth infinite sliding */
+      }
+      
+      .slider-item {
+        flex: 0 0 auto; /* Prevent items from shrinking or growing */
+        width: 16.666%; /* Matches the width of Bootstrap's col-md-2 */
+        padding: 0 15px; /* Matches Bootstrap's default column padding */
+        box-sizing: border-box; /* Include padding in the width calculation */
+      }
+      
+      /* Keyframe for continuous sliding */
+      @keyframes slide {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%); /* Shift half the width to loop */
+        }
+      }
+      
+      /* Optional Styling for Smooth Hover Effect */
+      .slider-item:hover {
+        transform: scale(1.05); /* Slight zoom on hover */
+        transition: transform 0.3s ease;
+      }
+      
+      
+    </style>
   </head>
   
   <body data-aos-easing="ease-in-out" data-aos-duration="1000" data-aos-delay="0"><!-- ======= Header ======= -->
@@ -88,24 +124,32 @@
       <!-- ======= Candidate section start ======= -->
       <section id="candidate" class="services py-5">
         <div class="container aos-init aos-animate" data-aos="fade-up">
-          <header class="d-flex justify-content-between align-items-center mb-4">
+          <header class="mb-4">
             <header class="section-header">
               <p>CANDIDATES</p>
             </header>
-            <button class="btn" style="background-color: #060546; color: #ffffff">View All</button>
+            
           </header>
       
-          <div class="row">
-            <!-- Displaying only the first four items from the backend data -->
-            {% for can in candidates %}
-              <div class="col-md-2 mb-4 " data-aos="fade-up" data-aos-delay="200">
-                <div class="service-box p-3 text-center rounded-3  can-box hov">
-                  <img src="{{ can.photo_url }}" alt="{{ can.fullname }} Image" class="img-fluid rounded-circle mb-2 border border-3" style="width: 50%; height: auto; aspect-ratio: 1 / 1;">
-                        <h5 class="font-weight-bold">{{ can.fullname }}</h5>
+          <div class="slider-container" >
+
+              <div class="slider-track">
+                <!-- Displaying only the first four items from the backend data -->
+                {% for can in candidates %}
+                <div class="slider-item" data-aos="fade-up" data-aos-delay="200">
+                  
+                    <div class="service-box p-3 text-center rounded-3  can-box hov">
+                      <img src="{{ can.photo_url }}" alt="{{ can.fullname }} Image" class="img-fluid rounded-circle mb-2 border border-3" style="width: 50%; height: auto; aspect-ratio: 1 / 1;">
+                            <h5 class="font-weight-bold">{{ can.fullname }}</h5>
+                    </div>
+                 
                 </div>
+                {% endfor %}
+                
+                
               </div>
-            {% endfor %}
-          </div>
+            </div>
+         
         </div>
       </section>
       <!-- ======= Candidate section end ======= -->
@@ -323,6 +367,16 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init();
+    </script>
+
+    <script>
+      const sliderTrack = document.querySelector('.slider-track');
+      sliderTrack.addEventListener('mouseover', () => {
+        sliderTrack.style.animationPlayState = 'paused';
+      });
+      sliderTrack.addEventListener('mouseout', () => {
+        sliderTrack.style.animationPlayState = 'running';
+      });
     </script>
 
     <!-- CEIT TIMER -->
