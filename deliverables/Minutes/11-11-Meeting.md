@@ -5,7 +5,7 @@
 The scribe is the person taking the _notes_. This is encouraged to be a single person to reduce problems.
 * Time: 3:00-4:00(PM)
 * Location: Russ Engineering Hall
-* Scribe: Prashant Rai
+* Scribe: Sachin Patel  
 
 ## Agenda
 * Development - Frontend
@@ -37,4 +37,4 @@ The scribe is the person taking the _notes_. This is encouraged to be a single p
 
 ## Signatures
 Prashant Rai  
-
+Sachin Patel  
