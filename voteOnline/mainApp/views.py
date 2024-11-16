@@ -136,3 +136,246 @@ def dashboard(request):
         'voted': voted_department + voted_main,
     }
     return render(request, 'main/dashboard.html', context)
+
+
+@user_passes_test(lambda u: u.is_superuser)
+def electionschedule(request):
+    schedule_form = ScheduleForm()
+    if request.method == 'POST':
+        schedule_form = ScheduleForm(request.POST)
+        if schedule_form.is_valid():
+            schedule_form.save()
+            return HttpResponseRedirect(reverse('electionschedule'))
+    context = {
+        'title': 'Schedule',
+        'schedule': votingschedule.objects.all(),
+        'schedule_form': schedule_form,
+    }
+    return render(request, 'main/electionschedule.html', context)
+
+
+@user_passes_test(lambda u: u.is_superuser)
+def updateelectionschedule(request, pk):
+    schedule = votingschedule.objects.get(id=pk)
+    schedule_form = UpdateScheduleForm(instance=schedule)
+    context = {
+        'title': 'Update Schedule',
+        'schedule': schedule,
+        'schedule_form': schedule_form
+    }
+    if request.method == 'POST':
+        schedule_form = UpdateScheduleForm(request.POST, instance=schedule)
+        if schedule_form.is_valid():
+            schedule_form.save()
+            return HttpResponseRedirect(reverse('electionschedule'))
+    return render(request, 'main/updateelectionschedule.html', context)
+
+
+@user_passes_test(lambda u: u.is_superuser)
+def deleteelectionschedule(request, pk):
+    schedule = votingschedule.objects.get(id=pk)
+    context = {
+        'title': 'Delete Shedule',
+        'schedule': schedule,
+    }
+    if request.method == 'POST':
+        schedule.delete()
+        return HttpResponseRedirect(reverse('electionschedule'))
+    return render(request, 'main/deleteschedule.html', context)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# SETTINGS
+@user_passes_test(lambda u: u.is_superuser)
+def settings(request):
+    if request.method == 'POST':
+        ### MAIN ####
+        try:
+            if 'reset_main' in request.POST:
+                candidates = MAIN_Candidate.objects.all()
+                for candidate in candidates:
+                    for voter in candidate.voters.all():
+                        voter.voted_department = False
+                        voter.save()
+
+                    candidate.voters.clear()
+
+                sweetify.toast(request, 'Main WSU Election successfully reset!')
+        except:
+            print('Cannot Reset Main Branch')
+
+
+        try:
+            if 'delete_main' in request.POST:
+                candidates = MAIN_Candidate.objects.all()
+                for candidate in candidates:
+
+                    for voter in candidate.voters.all():
+                        voter.voted_department = False
+                        voter.save()
+                    
+                    candidate.delete()
+                sweetify.toast(request, 'Main WSU Candidates successfully deleted!')
+        except:
+            print('Cannot Delete Main Branch')
+
+        
+        ### CECS ####
+
+        try:
+            if 'reset_CECS' in request.POST:
+                candidates = CECS_Candidate.objects.all()
+                print("CECS running")
+                for candidate in candidates:
+                    print("CECS running2")
+                    for voter in candidate.voters.all():
+                        voter.voted_department = False
+                        print(f"vote is {voter.voted_department}")
+                        voter.save()
+                    candidate.voters.clear()
+                sweetify.toast(request, 'CECS Election successfully reset!')
+        except Exception as e:
+            print(f'Cannot Reset CECS Department: {e}')
+
+
+
+        try:
+            if 'delete_CECS' in request.POST:
+                candidates = CECS_Candidate.objects.all()
+                for candidate in candidates:
+
+                    for voter in candidate.voters.all():
+                        voter.voted_department = False
+                        voter.save()
+                    
+                    candidate.delete()
+
+                sweetify.toast(request, 'CECS Candidates successfully deleted!')
+        except:
+            print('Cannot Delete CECS Department')
+
+
+        
+        ### CSM ####
+
+        try:
+            if 'reset_CSM' in request.POST:
+                candidates = CSM_Candidate.objects.all()
+                for candidate in candidates:
+                    for voter in candidate.voters.all():
+                        voter.voted_department = False
+                        voter.save()
+                    candidate.voters.clear()
+                sweetify.toast(request, 'CSM Election successfully reset!')
+        except:
+            print('Cannot Reset CSM Department')
+        try:
+            if 'delete_CSM' in request.POST:
+                candidates = CSM_Candidate.objects.all()
+                for candidate in candidates:
+
+                    for voter in candidate.voters.all():
+                        voter.voted_department = False
+                        voter.save()
+
+                    candidate.delete()
+
+                sweetify.toast(request, 'CSM Candidates successfully deleted!')
+        except:
+            print('Cannot Delete CSM Department')
+
+
+        
+        ### CLA ####
+
+        try:
+            if 'reset_CLA' in request.POST:
+                candidates = CLA_Candidate.objects.all()
+                for candidate in candidates:
+                    for voter in candidate.voters.all():
+                        voter.voted_department = False
+                        voter.save()
+                    
+                    candidate.voters.clear()
+                    
+                    
+                sweetify.toast(request, 'CLA Election successfully reset!')
+        except:
+            print('Cannot Reset CLA Department')
+        try:
+            if 'delete_CLA' in request.POST:
+                candidates = CLA_Candidate.objects.all()
+                for candidate in candidates:
+                    
+
+                    for voter in candidate.voters.all():
+                        voter.voted_department = False
+                        voter.save()
+
+                    candidate.delete()
+                sweetify.toast(request, 'CLA Candidates successfully deleted!')
+        except:
+            print('Cannot Delete CLA Department')
+
+        
+        ### CBUS ####
+        
+        try:
+            if 'reset_CBUS' in request.POST:
+                candidates = CBUS_Candidate.objects.all()
+                for candidate in candidates:
+                    
+
+                    for voter in candidate.voters.all():
+                        voter.voted_department = False
+                        voter.save()
+
+                    candidate.voters.clear()
+
+                sweetify.toast(request, 'CBUS Election successfully reset!')
+        except:
+            print('Cannot Reset CBUS Department')
+        try:
+            if 'delete_CBUS' in request.POST:
+                candidates = CBUS_Candidate.objects.all()
+                for candidate in candidates:
+                    
+
+                    for voter in candidate.voters.all():
+                        voter.voted_department = False
+                        voter.save()
+                    
+                    candidate.delete()
+
+                sweetify.toast(request, 'CBUS Candidates successfully deleted!')
+        except:
+            print('Cannot Delete CBUS Department')
+        
+
+    context = {
+        'title': 'Settings'
+    }
+    return render(request, 'main/settings.html', context)
