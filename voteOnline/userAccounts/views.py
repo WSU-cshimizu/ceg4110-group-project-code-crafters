@@ -48,8 +48,6 @@ def landingpage(request):
     # Combine all candidates into one list
     all_candidates = list(main_candidates) + list(cecs_candidates) + list(csm_candidates) + list(cla_candidates) + list(cbus_candidates)
 
-    # Randomly select 4 candidates
-    selected_candidates = sample(all_candidates, min(4, len(all_candidates))) if all_candidates else []
     
     context = {
         'CSM': CSM,
@@ -59,7 +57,7 @@ def landingpage(request):
         'main': main,
         'today': datetime.date.today(),
         'schedules': schedules,
-        'candidates': selected_candidates
+        'candidates': all_candidates
     }
     return render(request, 'account/landingpage.html', context)
 
