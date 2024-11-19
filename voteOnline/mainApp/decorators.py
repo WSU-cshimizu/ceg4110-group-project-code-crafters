@@ -157,3 +157,56 @@ def CLA_schedule_or_superuser(function):
                sweetify.error(request, 'There is no schedule posted yet!')
                return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
      return wrap
+
+
+def CBUS_voter_or_superuser(function):
+  @wraps(function)
+  def wrap(request, *args, **kwargs):
+
+        profile = request.user
+        if profile.department == 'CBUS' or profile.is_superuser:
+             return function(request, *args, **kwargs)
+        else:
+            return HttpResponseRedirect('/')
+
+  return wrap
+
+
+def CBUS_schedule_or_superuser(function):
+     @wraps(function)
+     def wrap(request, *args, **kwargs):
+          try:
+               schedule = votingschedule.objects.get(department='CBUS')
+               start = schedule.start
+               end = schedule.end
+               today = datetime.datetime.now().date()
+               if today >= start and today <= end or request.user.is_superuser:
+                    return function(request, *args, **kwargs)
+               else:
+                    sweetify.error(request, 'Kindly wait for the schedule!')
+                    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+          except:
+               sweetify.error(request, 'There is no schedule posted yet!')
+               return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+     return wrap
+
+
+
+
+def main_schedule_or_superuser(function):
+     @wraps(function)
+     def wrap(request, *args, **kwargs):
+          try:
+               schedule = votingschedule.objects.get(department='Main')
+               start = schedule.start
+               end = schedule.end
+               today = datetime.datetime.now().date()
+               if today >= start and today <= end or request.user.is_superuser:
+                    return function(request, *args, **kwargs)
+               else:
+                    sweetify.error(request, 'Kindly wait for the schedule!')
+                    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+          except:
+               sweetify.error(request, 'There is no schedule posted yet!')
+               return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+     return wrap
