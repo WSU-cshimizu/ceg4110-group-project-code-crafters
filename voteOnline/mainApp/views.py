@@ -185,6 +185,439 @@ def deleteelectionschedule(request, pk):
 
 
 
+##############CLA############################
+@user_passes_test(lambda u: u.is_superuser)
+def CLAcandidates(request):
+    candidate_form = CLA_CandidatesForm()
+    if request.method == 'POST':
+        candidate_form = CLA_CandidatesForm(request.POST, request.FILES)
+        if candidate_form.is_valid():
+            candidate_form.save()
+            return HttpResponseRedirect(reverse("CLAcandidates"))
+
+    context = {
+        'title': 'CLA Candidates',
+        'form': candidate_form,
+        'CLA': CLA_Candidate.objects.all()
+    }
+    return render(request, 'main/CLA/CLAcandidates.html', context)
+
+
+
+@user_passes_test(lambda u: u.is_superuser)
+def updateCLAcandidate(request, pk):
+    candidate = CLA_Candidate.objects.get(id=pk)
+    candidate_form = CLA_CandidatesForm(instance=candidate)
+    context = {
+        'title': 'Update CLA Candidate',
+        'candidate_form': candidate_form
+    }
+    if request.method == 'POST':
+        candidate_form = CLA_CandidatesForm(request.POST, request.FILES, instance=candidate)
+        if candidate_form.is_valid():
+            candidate_form.save()
+            return HttpResponseRedirect(reverse('CLAcandidates'))
+    return render(request, 'main/CLA/CLAupdatecandidate.html', context)
+
+
+@user_passes_test(lambda u: u.is_superuser)
+def deleteCLAcandidate(request, pk):
+    CLAcandidate = CLA_Candidate.objects.get(id=pk)
+    context = {
+        'title': 'Delete CLA Candidate',
+      'CLAcandidate': CLAcandidate,
+    }
+    if request.method == 'POST':
+        CLAcandidate.delete()
+        return HttpResponseRedirect(reverse('CLAcandidates'))
+
+    return render(request, 'main/CLA/CLAdeletecandidate.html', context)
+
+
+@user_passes_test(lambda u: u.is_superuser)
+def CLAtally(request):
+    context = {
+        'title': 'CLA Tally',
+        'CLA': CLA_Candidate.objects.all(),
+    }
+    return render(request, 'main/CLA/CLAtally.html', context)
+
+
+@user_passes_test(lambda u: u.is_superuser)
+def CLAresult(request):
+    context = {
+        'title': 'CLA Result',
+        'president': CLA_Candidate.objects.filter(position='President'),
+        'vicepresident': CLA_Candidate.objects.filter(position='Vice President'),
+        'secretary': CLA_Candidate.objects.filter(position='Secretary'),
+        'treasurer': CLA_Candidate.objects.filter(position='Treasurer'),
+        'eventco': CLA_Candidate.objects.filter(position='Event Coordinator'),
+        'srofficer': CLA_Candidate.objects.filter(position='Sports and Recreation Officer'),
+        'culturalaffairs': CLA_Candidate.objects.filter(position='Cultural affairs officer'),
+        'departmenthead': CLA_Candidate.objects.filter(position='Department Representative'),
+    }
+    return render(request, 'main/CLA/CLAresult.html', context)
+
+
+
+@login_required(login_url='login')
+@verified_or_superuser
+@CLA_voter_or_superuser
+@department_not_voted_or_superuser
+@CLA_schedule_or_superuser
+def CLAballot(request):
+    context = {
+        'title': 'CLA Ballot',
+        'president': CLA_Candidate.objects.filter(position='President'),
+        'vicepresident': CLA_Candidate.objects.filter(position='Vice President'),
+        'secretary': CLA_Candidate.objects.filter(position='Secretary'),
+        'treasurer': CLA_Candidate.objects.filter(position='Treasurer'),
+        'eventco': CLA_Candidate.objects.filter(position='Event Coordinator'),
+        'srofficer': CLA_Candidate.objects.filter(position='Sports and Recreation Officer'),
+        'culturalaffairs': CLA_Candidate.objects.filter(position='Cultural affairs officer'),
+        'departmenthead': CLA_Candidate.objects.filter(position='Department Representative'),
+    }
+    if request.method == 'POST':
+        voter = request.user
+        voter.voted_department = True
+        voter.save()
+        sweetify.success(request, 'Vote Submitted!')
+        
+
+    ###### President ######
+    try: 
+        request.POST['president']
+        voted_president = request.POST["president"]
+        g_voted = CLA_Candidate.objects.get(fullname=voted_president)
+        g_voters = g_voted.voters
+        g_voters.add(voter)
+        Records = UserRecords.objects.get(owner=voter, department='CLA')
+        Records.president = voted_president
+        Records.save()
+
+    except:
+        print("No selected President")
+    
+
+    ###### VICE President ######
+    try:
+        voted_vicepresident = request.POST["vicepresident"]
+        vg_voted = CLA_Candidate.objects.get(fullname=voted_vicepresident)
+        vg_voters = vg_voted.voters
+        vg_voters.add(voter)
+        Records = UserRecords.objects.get(owner=voter, department='CLA')
+        Records.vice_president = voted_vicepresident
+        Records.save()
+
+
+    except:
+        print("No selected Vice President")
+
+
+        ###### Secretary ######
+    try:
+        voted_secretary = request.POST["secretary"]
+        s_voted = CLA_Candidate.objects.get(fullname=voted_secretary)
+        s_voters = s_voted.voters
+        s_voters.add(voter)
+        Records = UserRecords.objects.get(owner=voter, department='CLA')
+        Records.secretary = voted_secretary
+        Records.save()
+
+
+    except:
+        print("No selected Secretary")
+
+
+            ###### Treasurer ######
+    try:
+        voted_treasurer = request.POST["treasurer"]
+        t_voted = CLA_Candidate.objects.get(fullname=voted_treasurer)
+        t_voters = t_voted.voters
+        t_voters.add(voter)
+        Records = UserRecords.objects.get(owner=voter, department='CLA')
+        Records.treasurer = voted_treasurer
+        Records.save()
+        
+    except:
+        print("No selected Treasurer")
+
+
+            ###### Event Coordinator ######
+    try:
+        voted_eventco = request.POST["eventco"]
+        a_voted = CLA_Candidate.objects.get(fullname=voted_eventco)
+        a_voters = a_voted.voters
+        a_voters.add(voter)
+        Records = UserRecords.objects.get(owner=voter, department='CLA')
+        Records.event_coordinator = voted_eventco
+        Records.save()
+        
+    except:
+        print("No selected Event Coordinator")
+
+
+            ###### Sports and Recreation Officer ######
+    try:
+        voted_srofficer = request.POST["srofficer"]
+        p_voted = CLA_Candidate.objects.get(fullname=voted_srofficer)
+        p_voters = p_voted.voters
+        p_voters.add(voter)
+        Records = UserRecords.objects.get(owner=voter, department='CLA')
+        Records.sports_recreation_officer = voted_srofficer
+        Records.save()
+        
+    except:
+        print("No selected Sports and Recreation Officer")
+
+
+            ###### Cultural Affairs officer ######
+    try:
+        voted_cula = request.POST["culturalaffairs"]
+        b_voted = CLA_Candidate.objects.get(fullname=voted_cula)
+        b_voters = b_voted.voters
+        b_voters.add(voter)
+        Records = UserRecords.objects.get(owner=voter, department='CLA')
+        Records.cultural_affairs_officer = voted_cula
+        Records.save()
+        
+    except:
+        print("No selected Cultural Affairs officer")
+
+    
+            ###### Department Representative ######
+    try:
+        voted_represent = request.POST["departmenthead"]
+        p_voted = CLA_Candidate.objects.get(fullname=voted_represent)
+        p_voters = p_voted.voters
+        p_voters.add(voter)
+        Records = UserRecords.objects.get(owner=voter, department='CLA')
+        Records.departmentrepresentative = voted_represent
+        Records.save()
+        return HttpResponseRedirect(reverse('Records'))
+        
+    except:
+        print("No selected Department Representative")
+    
+
+    return render(request, 'main/CLA/CLAballot.html', context)
+
+
+
+#################CSM######################################
+@user_passes_test(lambda u: u.is_superuser)
+def CSMcandidates(request):
+    candidate_form = CSM_CandidatesForm()
+    if request.method == 'POST':
+        candidate_form = CSM_CandidatesForm(request.POST, request.FILES)
+        if candidate_form.is_valid():
+            candidate_form.save()
+            return HttpResponseRedirect(reverse("CSMcandidates"))
+
+    context = {
+        'title': 'CSM Candidates',
+        'form': candidate_form,
+        'CSM': CSM_Candidate.objects.all()
+    }
+    return render(request, 'main/CSM/CSMcandidates.html', context)
+
+@user_passes_test(lambda u: u.is_superuser)
+def updateCSMcandidate(request, pk):
+    candidate = CSM_Candidate.objects.get(id=pk)
+    candidate_form = CSM_CandidatesForm(instance=candidate)
+    context = {
+        'title': 'Update CSM Candidate',
+        'candidate_form': candidate_form
+    }
+    if request.method == 'POST':
+        candidate_form = CSM_CandidatesForm(request.POST, request.FILES, instance=candidate)
+        if candidate_form.is_valid():
+            candidate_form.save()
+            return HttpResponseRedirect(reverse('CSMcandidates'))
+    return render(request, 'main/CSM/CSMupdatecandidate.html', context)
+
+
+@user_passes_test(lambda u: u.is_superuser)
+def deleteCSMcandidate(request, pk):
+    CSMcandidate = CSM_Candidate.objects.get(id=pk)
+    context = {
+        'title': 'Delete CSM Candidate',
+      'CSMcandidate': CSMcandidate,
+    }
+    if request.method == 'POST':
+        CSMcandidate.delete()
+        return HttpResponseRedirect(reverse('CSMcandidates'))
+
+    return render(request, 'main/CSM/CSMdeletecandidate.html', context)
+
+
+
+@user_passes_test(lambda u: u.is_superuser)
+def CSMtally(request):
+    context = {
+        'title': 'CSM Tally',
+        'CSM': CSM_Candidate.objects.all(),
+    }
+    return render(request, 'main/CSM/CSMtally.html', context)
+
+
+@user_passes_test(lambda u: u.is_superuser)
+def CSMresult(request):
+    context = {
+        'president': CSM_Candidate.objects.filter(position='President'),
+        'vicepresident': CSM_Candidate.objects.filter(position='Vice President'),
+        'secretary': CSM_Candidate.objects.filter(position='Secretary'),
+        'treasurer': CSM_Candidate.objects.filter(position='Treasurer'),
+        'eventco': CSM_Candidate.objects.filter(position='Event Coordinator'),
+        'srofficer': CSM_Candidate.objects.filter(position='Sports and Recreation Officer'),
+        'culturalaffairs': CSM_Candidate.objects.filter(position='Cultural affairs officer'),
+        'departmenthead': CSM_Candidate.objects.filter(position='Department Representative'),
+    }
+    return render(request, 'main/CSM/CSMresult.html', context)
+
+
+
+@login_required(login_url='login')
+@verified_or_superuser
+@CSM_voter_or_superuser
+@department_not_voted_or_superuser
+@CSM_schedule_or_superuser
+def CSMballot(request):
+    context = {
+        'title': 'CSM Ballot',
+        'president': CSM_Candidate.objects.filter(position='President'),
+        'vicepresident': CSM_Candidate.objects.filter(position='Vice President'),
+        'secretary': CSM_Candidate.objects.filter(position='Secretary'),
+        'treasurer': CSM_Candidate.objects.filter(position='Treasurer'),
+        'eventco': CSM_Candidate.objects.filter(position='Event Coordinator'),
+        'srofficer': CSM_Candidate.objects.filter(position='Sports and Recreation Officer'),
+        'culturalaffairs': CSM_Candidate.objects.filter(position='Cultural affairs officer'),
+        'departmenthead': CSM_Candidate.objects.filter(position='Department Representative'),
+    }
+    if request.method == 'POST':
+        voter = request.user
+        voter.voted_department = True
+        voter.save()
+        sweetify.success(request, 'Vote Submitted!')
+        
+
+    ###### President ######
+    try: 
+        request.POST['president']
+        voted_president = request.POST["president"]
+        g_voted = CSM_Candidate.objects.get(fullname=voted_president)
+        g_voters = g_voted.voters
+        g_voters.add(voter)
+        Records = UserRecords.objects.get(owner=voter, department='CSM')
+        Records.president = voted_president
+        Records.save()
+
+    except:
+        print("No selected President")
+    
+
+    ###### VICE President ######
+    try:
+        voted_vicepresident = request.POST["vicepresident"]
+        vg_voted = CSM_Candidate.objects.get(fullname=voted_vicepresident)
+        vg_voters = vg_voted.voters
+        vg_voters.add(voter)
+        Records = UserRecords.objects.get(owner=voter, department='CSM')
+        Records.vice_president = voted_vicepresident
+        Records.save()
+
+
+    except:
+        print("No selected Vice President")
+
+
+        ###### Secretary ######
+    try:
+        voted_secretary = request.POST["secretary"]
+        s_voted = CSM_Candidate.objects.get(fullname=voted_secretary)
+        s_voters = s_voted.voters
+        s_voters.add(voter)
+        Records = UserRecords.objects.get(owner=voter, department='CSM')
+        Records.secretary = voted_secretary
+        Records.save()
+
+
+    except:
+        print("No selected Secretary")
+
+
+            ###### Treasurer ######
+    try:
+        voted_treasurer = request.POST["treasurer"]
+        t_voted = CSM_Candidate.objects.get(fullname=voted_treasurer)
+        t_voters = t_voted.voters
+        t_voters.add(voter)
+        Records = UserRecords.objects.get(owner=voter, department='CSM')
+        Records.treasurer = voted_treasurer
+        Records.save()
+        
+    except:
+        print("No selected Treasurer")
+
+
+            ###### Event Coordinator ######
+    try:
+        voted_eventco = request.POST["eventco"]
+        a_voted = CSM_Candidate.objects.get(fullname=voted_eventco)
+        a_voters = a_voted.voters
+        a_voters.add(voter)
+        Records = UserRecords.objects.get(owner=voter, department='CSM')
+        Records.event_coordinator = voted_eventco
+        Records.save()
+        
+    except:
+        print("No selected Event Coordinator")
+
+
+            ###### Sports and Recreation Officer ######
+    try:
+        voted_srofficer = request.POST["srofficer"]
+        p_voted = CSM_Candidate.objects.get(fullname=voted_srofficer)
+        p_voters = p_voted.voters
+        p_voters.add(voter)
+        Records = UserRecords.objects.get(owner=voter, department='CSM')
+        Records.sports_recreation_officer = voted_srofficer
+        Records.save()
+        
+    except:
+        print("No selected Sports and Recreation Officer")
+
+
+            ###### Cultural Affairs Officer ######
+    try:
+        voted_cult = request.POST["culturalaffairs"]
+        b_voted = CSM_Candidate.objects.get(fullname=voted_cult)
+        b_voters = b_voted.voters
+        b_voters.add(voter)
+        Records = UserRecords.objects.get(owner=voter, department='CSM')
+        Records.cultural_affairs_officer = voted_cult
+        Records.save()
+        
+    except:
+        print("No selected Cultural Affairs Officer")
+
+    
+            ###### Department Representative ######
+    try:
+        voted_departrep = request.POST["departmenthead"]
+        p_voted = CSM_Candidate.objects.get(fullname=voted_departrep)
+        p_voters = p_voted.voters
+        p_voters.add(voter)
+        Records = UserRecords.objects.get(owner=voter, department='CSM')
+        Records.departmentrepresentative = voted_departrep
+        Records.save()
+        return HttpResponseRedirect(reverse('Records'))
+        
+    except:
+        print("No selected Department Representative")
+
+
+    return render(request, 'main/CSM/CSMballot.html', context)
 
 
 ######## MAIN WSU section #####################

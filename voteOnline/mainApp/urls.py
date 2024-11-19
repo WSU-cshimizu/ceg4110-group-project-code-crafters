@@ -16,5 +16,20 @@ urlpatterns = [
     path('election/schedule', views.electionschedule, name='electionschedule'),
     path('election/schedule/update/<str:pk>', views.updateelectionschedule, name='updateelectionschedule'),
     path('election/schedule/delete/<str:pk>', views.deleteelectionschedule, name='deleteelectionschedule'),
+
+    path('CSM/ballot', views.CSMballot, name='CSMballot'),
+    path('CSM/candidates', views.CSMcandidates, name='CSMcandidates'),
+    path('CSM/tally', views.CSMtally, name='CSMtally'),
+    path('CSM/result', views.CSMresult, name='CSMresult'),
+    path('CSM/candidate/update/<str:pk>', views.updateCSMcandidate, name='updateCSMcandidate'),
+    path('CSM/candidate/delete/<str:pk>', views.deleteCSMcandidate, name='deleteCSMcandidate'),
+
+
+    path('CLA/ballot', views.CLAballot, name='CLAballot'),
+    path('CLA/candidates', views.CLAcandidates, name='CLAcandidates'),
+    path('CLA/tally', views.CLAtally, name='CLAtally'),
+    path('CLA/result', views.CLAresult, name='CLAresult'),
+    path('CLA/candidate/update/<str:pk>', views.updateCLAcandidate, name='updateCLAcandidate'),
+    path('CLA/candidate/delete/<str:pk>', views.deleteCLAcandidate, name='deleteCLAcandidate'),
     
 ]
