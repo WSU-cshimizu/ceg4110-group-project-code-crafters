@@ -71,7 +71,7 @@ def generate_otp():
 
 def login_view(request):
     if request.method == 'POST':
-        email = request.POST['email']
+        email = request.POST['email'].lower()
         password = request.POST['password']
         user = authenticate(request, email=email, password=password)
         if user is not None:

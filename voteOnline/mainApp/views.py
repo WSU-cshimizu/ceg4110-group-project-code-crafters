@@ -620,6 +620,448 @@ def CSMballot(request):
     return render(request, 'main/CSM/CSMballot.html', context)
 
 
+#################CECS############################
+@user_passes_test(lambda u: u.is_superuser)
+def CECScandidates(request):
+    candidate_form = CECS_CandidatesForm()
+    if request.method == 'POST':
+        candidate_form = CECS_CandidatesForm(request.POST, request.FILES)
+        if candidate_form.is_valid():
+            candidate_form.save()
+            return HttpResponseRedirect(reverse("CECScandidates"))
+
+    context = {
+        'title': 'CECS Candidates',
+        'form': candidate_form,
+        'CECS': CECS_Candidate.objects.all()
+    }
+    return render(request, 'main/CECS/CECScandidates.html', context) 
+
+@user_passes_test(lambda u: u.is_superuser)
+def updateCECScandidate(request, pk):
+    candidate = CECS_Candidate.objects.get(id=pk)
+    candidate_form = CECS_CandidatesForm(instance=candidate)
+    context = {
+                'title': 'Update CECS Candidate',
+                'candidate_form': candidate_form
+    }
+    if request.method == 'POST':
+        candidate_form = CECS_CandidatesForm(request.POST, request.FILES, instance=candidate)
+        if candidate_form.is_valid():
+            candidate_form.save()
+            return HttpResponseRedirect(reverse('CECScandidates'))
+    return render(request, 'main/CECS/CECSupdatecandidate.html', context)
+
+
+@user_passes_test(lambda u: u.is_superuser)
+def deleteCECScandidate(request, pk):
+    CECScandidate = CECS_Candidate.objects.get(id=pk)
+    context = {
+        'title': 'Delete CECS Candidate',
+        'CECScandidate': CECScandidate,
+    }
+    if request.method == 'POST':
+        CECScandidate.delete()
+        return HttpResponseRedirect(reverse('CECScandidates'))
+
+    return render(request, 'main/CECS/CECSdeletecandidate.html', context)
+
+
+
+@user_passes_test(lambda u: u.is_superuser)
+def CECStally(request):
+    context = {
+        'title': 'CECS Tally',
+        'CECS': CECS_Candidate.objects.all(),
+    }
+    return render(request, 'main/CECS/CECStally.html', context)
+
+
+@user_passes_test(lambda u: u.is_superuser)
+def CECSresult(request):
+    context = {
+        'title': 'CECS Result',
+        'president': CECS_Candidate.objects.filter(position='President'),
+        'vicepresident': CECS_Candidate.objects.filter(position='Vice President'),
+        'secretary': CECS_Candidate.objects.filter(position='Secretary'),
+        'treasurer': CECS_Candidate.objects.filter(position='Treasurer'),
+        'eventco': CECS_Candidate.objects.filter(position='Event Coordinator'),
+        'srofficer': CECS_Candidate.objects.filter(position='Sports and Recreation Officer'),
+        'culturalaffairs': CECS_Candidate.objects.filter(position='Cultural affairs officer'),
+        'departmenthead': CECS_Candidate.objects.filter(position='Department Representative'),
+    }
+    return render(request, 'main/CECS/CECSresult.html', context)
+
+
+
+@login_required(login_url='login')
+@verified_or_superuser
+@CECS_voter_or_superuser
+@department_not_voted_or_superuser
+@CECS_schedule_or_superuser
+def CECSballot(request):
+    context = {
+        'title': 'CECS Ballot',
+        'president': CECS_Candidate.objects.filter(position='President'),
+        'vicepresident': CECS_Candidate.objects.filter(position='Vice President'),
+        'secretary': CECS_Candidate.objects.filter(position='Secretary'),
+        'treasurer': CECS_Candidate.objects.filter(position='Treasurer'),
+        'eventco': CECS_Candidate.objects.filter(position='Event Coordinator'),
+        'srofficer': CECS_Candidate.objects.filter(position='Sports and Recreation Officer'),
+        'culturalaffairs': CECS_Candidate.objects.filter(position='Cultural affairs officer'),
+        'departmenthead': CECS_Candidate.objects.filter(position='Department Representative'),
+    }
+    if request.method == 'POST':
+        voter = request.user
+        voter.voted_department = True
+        voter.save()
+        sweetify.success(request, 'Vote Submitted!')
+
+
+    ###### President ######
+    try: 
+        request.POST['president']
+        voted_president = request.POST["president"]
+        g_voted = CECS_Candidate.objects.get(fullname=voted_president)
+        g_voters = g_voted.voters
+        g_voters.add(voter)
+        Records = UserRecords.objects.get(owner=voter, department='CECS')
+        Records.president = voted_president
+        Records.save()
+
+    except:
+        print("No selected President")
+    
+
+    ###### VICE President ######
+    try:
+        voted_vicepresident = request.POST["vicepresident"]
+        vg_voted = CECS_Candidate.objects.get(fullname=voted_vicepresident)
+        vg_voters = vg_voted.voters
+        vg_voters.add(voter)
+        Records = UserRecords.objects.get(owner=voter, department='CECS')
+        Records.vice_president = voted_vicepresident
+        Records.save()
+
+
+    except:
+        print("No selected Vice President")
+
+
+        ###### Secretary ######
+    try:
+        voted_secretary = request.POST["secretary"]
+        s_voted = CECS_Candidate.objects.get(fullname=voted_secretary)
+        s_voters = s_voted.voters
+        s_voters.add(voter)
+        Records = UserRecords.objects.get(owner=voter, department='CECS')
+        Records.secretary = voted_secretary
+        Records.save()
+
+
+    except:
+        print("No selected Secretary")
+
+
+            ###### Treasurer ######
+    try:
+        voted_treasurer = request.POST["treasurer"]
+        t_voted = CECS_Candidate.objects.get(fullname=voted_treasurer)
+        t_voters = t_voted.voters
+        t_voters.add(voter)
+        Records = UserRecords.objects.get(owner=voter, department='CECS')
+        Records.treasurer = voted_treasurer
+        Records.save()
+        
+    except:
+        print("No selected Treasurer")
+
+
+            ###### Event Coordinator ######
+    try:
+        voted_event_co = request.POST["eventco"]
+        a_voted = CECS_Candidate.objects.get(fullname=voted_event_co)
+        a_voters = a_voted.voters
+        a_voters.add(voter)
+        Records = UserRecords.objects.get(owner=voter, department='CECS')
+        Records.event_coordinator = voted_event_co
+        Records.save()
+        
+    except:
+        print("No selected Event Coordinator")
+
+
+            ###### Sports and Recreation Officer ######
+    try:
+        voted_srofficer = request.POST["srofficer"]
+        p_voted = CECS_Candidate.objects.get(fullname=voted_srofficer)
+        p_voters = p_voted.voters
+        p_voters.add(voter)
+        Records = UserRecords.objects.get(owner=voter, department='CECS')
+        Records.sports_recreation_officer = voted_srofficer
+        Records.save()
+        
+    except:
+        print("No selected Sports and Recreation Officer")
+
+
+            ###### Cultural Affairs Officer ######
+    try:
+        voted_culturalaffairs = request.POST["culturalaffairs"]
+        b_voted = CECS_Candidate.objects.get(fullname=voted_culturalaffairs)
+        b_voters = b_voted.voters
+        b_voters.add(voter)
+        Records = UserRecords.objects.get(owner=voter, department='CECS')
+        Records.cultural_affairs_officer = voted_culturalaffairs
+        Records.save()
+        
+    except:
+        print("No selected Cultural Affairs Officer")
+
+    
+            ###### Department Head ######
+    try:
+        voted_departmenthead = request.POST["departmenthead"]
+        p_voted = CECS_Candidate.objects.get(fullname=voted_departmenthead)
+        p_voters = p_voted.voters
+        p_voters.add(voter)
+        Records = UserRecords.objects.get(owner=voter, department='CECS')
+        Records.departmenthead = voted_departmenthead
+        Records.save()
+        return HttpResponseRedirect(reverse('Records'))
+        
+    except:
+        print("No selected Department Head")
+
+
+    return render(request, 'main/CECS/CECSballot.html', context)
+
+
+
+############################## CBUS ############################################
+
+
+@user_passes_test(lambda u: u.is_superuser)
+def CBUScandidates(request):
+    candidate_form = CBUS_CandidatesForm()
+    if request.method == 'POST':
+        candidate_form = CBUS_CandidatesForm(request.POST, request.FILES)
+        if candidate_form.is_valid():
+            candidate_form.save()
+            return HttpResponseRedirect(reverse("CBUScandidates"))
+
+    context = {
+        'title': 'CBUS Candidates',
+        'form': candidate_form,
+        'CBUS': CBUS_Candidate.objects.all()
+    }
+    return render(request, 'main/CBUS/CBUScandidates.html', context)
+
+
+@user_passes_test(lambda u: u.is_superuser)
+def updateCBUScandidate(request, pk):
+    candidate = CBUS_Candidate.objects.get(id=pk)
+    candidate_form = CBUS_CandidatesForm(instance=candidate)
+    context = {
+        'title': 'Update CBUS Candidate',
+        'candidate_form': candidate_form
+    }
+    if request.method == 'POST':
+        candidate_form = CBUS_CandidatesForm(request.POST, request.FILES, instance=candidate)
+        if candidate_form.is_valid():
+            candidate_form.save()
+            return HttpResponseRedirect(reverse('CBUScandidates'))
+    return render(request, 'main/CBUS/CBUSupdatecandidate.html', context)
+
+
+@user_passes_test(lambda u: u.is_superuser)
+def deleteCBUScandidate(request, pk):
+    CBUScandidate = CBUS_Candidate.objects.get(id=pk)
+    context = {
+        'title': 'Delete CBUS Candidate',
+        'CBUScandidate': CBUScandidate,
+    }
+    if request.method == 'POST':
+        CBUScandidate.delete()
+        return HttpResponseRedirect(reverse('CBUScandidates'))
+
+    return render(request, 'main/CBUS/CBUSdeletecandidate.html', context)
+
+
+
+@user_passes_test(lambda u: u.is_superuser)
+def CBUStally(request):
+    context = {
+        'title': 'CBUS Tally',
+        'CBUS': CBUS_Candidate.objects.all(),
+    }
+    return render(request, 'main/CBUS/CBUStally.html', context)
+
+
+@user_passes_test(lambda u: u.is_superuser)
+def CBUSresult(request):
+    context = {
+        'title': 'CBUS Result',
+        'president': CBUS_Candidate.objects.filter(position='President'),
+        'vicepresident': CBUS_Candidate.objects.filter(position='Vice President'),
+        'secretary': CBUS_Candidate.objects.filter(position='Secretary'),
+        'treasurer': CBUS_Candidate.objects.filter(position='Treasurer'),
+        'eventco': CBUS_Candidate.objects.filter(position='Event Coordinator'),
+        'srofficer': CBUS_Candidate.objects.filter(position='Sports and Recreation Officer'),
+        'culturalaffairs': CBUS_Candidate.objects.filter(position='Cultural affairs officer'),
+        'departmenthead': CBUS_Candidate.objects.filter(position='Department Representative'),
+
+    }
+    return render(request, 'main/CBUS/CBUSresult.html', context)
+
+
+
+@login_required(login_url='login')
+@verified_or_superuser
+@CBUS_voter_or_superuser
+@department_not_voted_or_superuser
+@CBUS_schedule_or_superuser
+def CBUSballot(request):
+    context = {
+        'title': 'CBUS Ballot',
+        'president': CBUS_Candidate.objects.filter(position='President'),
+        'vicepresident': CBUS_Candidate.objects.filter(position='Vice President'),
+        'secretary': CBUS_Candidate.objects.filter(position='Secretary'),
+        'treasurer': CBUS_Candidate.objects.filter(position='Treasurer'),
+        'eventco': CBUS_Candidate.objects.filter(position='Event Coordinator'),
+        'srofficer': CBUS_Candidate.objects.filter(position='Sports and Recreation Officer'),
+        'culturalaffairs': CBUS_Candidate.objects.filter(position='Cultural affairs officer'),
+        'departmenthead': CBUS_Candidate.objects.filter(position='Department Representative'),
+    }
+    if request.method == 'POST':
+        voter = request.user
+        voter.voted_department = True
+        voter.save()
+        sweetify.success(request, 'Vote Submitted!')      
+        
+
+    ###### president ######
+    try: 
+        request.POST['president']
+        voted_president = request.POST["president"]
+        g_voted = CBUS_Candidate.objects.get(fullname=voted_president)
+        g_voters = g_voted.voters
+        g_voters.add(voter)
+        Records = UserRecords.objects.get(owner=voter, department="CBUS")
+        Records.president = voted_president
+        Records.save()
+
+    except:
+        print("No selected president")
+    
+
+    ###### VICE president ######
+    try:
+        voted_vicepresident = request.POST["vicepresident"]
+        vg_voted = CBUS_Candidate.objects.get(fullname=voted_vicepresident)
+        vg_voters = vg_voted.voters
+        vg_voters.add(voter)
+        Records = UserRecords.objects.get(owner=voter, department="CBUS")
+        Records.vice_president = voted_vicepresident
+        Records.save()
+
+
+    except:
+        print("No selected Vice president")
+
+
+        ###### Secretary ######
+    try:
+        voted_secretary = request.POST["secretary"]
+        s_voted = CBUS_Candidate.objects.get(fullname=voted_secretary)
+        s_voters = s_voted.voters
+        s_voters.add(voter)
+        Records = UserRecords.objects.get(owner=voter, department="CBUS")
+        Records.secretary = voted_secretary
+        Records.save()
+
+
+    except:
+        print("No selected Secretary")
+
+
+            ###### Treasurer ######
+    try:
+        voted_treasurer = request.POST["treasurer"]
+        t_voted = CBUS_Candidate.objects.get(fullname=voted_treasurer)
+        t_voters = t_voted.voters
+        t_voters.add(voter)
+        Records = UserRecords.objects.get(owner=voter, department="CBUS")
+        Records.treasurer = voted_treasurer
+        Records.save()
+        
+    except:
+        print("No selected Treasurer")
+
+
+            ###### Event Coordinator ######
+    try:
+        voted_eventco = request.POST["eventco"]
+        a_voted = CBUS_Candidate.objects.get(fullname=voted_eventco)
+        a_voters = a_voted.voters
+        a_voters.add(voter)
+        Records = UserRecords.objects.get(owner=voter, department="CBUS")
+        Records.event_coordinator = voted_eventco
+        Records.save()
+        
+    except:
+        print("No selected Event Coordinator")
+
+
+            ###### Sports Recreation Officer ######
+    try:
+        voted_srofficer = request.POST["srofficer"]
+        p_voted = CBUS_Candidate.objects.get(fullname=voted_srofficer)
+        p_voters = p_voted.voters
+        p_voters.add(voter)
+        Records = UserRecords.objects.get(owner=voter, department="CBUS")
+        Records.sports_recreation_officer = voted_srofficer
+        Records.save()
+        
+    except:
+        print("No selected Sports Recreation Officer")
+
+
+            ###### Cultural Affairs Officer ######
+    try:
+        voted_culturalaffairs = request.POST["culturalaffairs"]
+        b_voted = CBUS_Candidate.objects.get(fullname=voted_culturalaffairs)
+        b_voters = b_voted.voters
+        b_voters.add(voter)
+        Records = UserRecords.objects.get(owner=voter, department="CBUS")
+        Records.cultural_affairs_officer = voted_culturalaffairs
+        Records.save()
+        
+    except:
+        print("No selected Cultural Affairs Officer")
+
+    
+            ###### Department Representative ######
+    try:
+        voted_represent = request.POST["departmenthead"]
+        p_voted = CBUS_Candidate.objects.get(fullname=voted_represent)
+        p_voters = p_voted.voters
+        p_voters.add(voter)
+        Records = UserRecords.objects.get(owner=voter, department="CBUS")
+        Records.departmentrepresentative = voted_represent
+        Records.save()
+        return HttpResponseRedirect(reverse('Records'))
+        
+    except:
+        print("No selected Department Representative")
+
+
+    return render(request, 'main/CBUS/CBUSballot.html', context)
+
+
+
+
+
 ######## MAIN WSU section #####################
 
 @user_passes_test(lambda u: u.is_superuser)
