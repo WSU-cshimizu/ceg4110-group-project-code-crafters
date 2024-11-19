@@ -1,0 +1,398 @@
+{% extends 'main/layout.html' %}
+
+{% block body %}
+<h1 class="h3 mb-2 text-primary font-weight-bolder text-center"> College of Business Department Election</h1>
+<form action="" method="POST">
+    {% csrf_token %}
+        <div class="row"  data-aos="fade-up" data-aos-duration="1000" data-aos-easing="ease-in-out">
+
+            <div class="col-12 m-3 d-flex justify-content-center">
+                <div class="card border-bottom-primary shadow w-75">
+                    <div class="card-body">
+                        <h5 class="card-title text-center"><b>President</b></h5>
+                        <hr>
+                        <div class="row">
+                            {% for president in president %}
+                            <div class="col-md-4 border-right">
+                                <div class="d-flex mb-3">
+                                    <input style="height:15px; width:15px;" type="radio" name="president" value="{{ president }}">
+                                    
+                                    <a href="#" class="btn btn-primary ml-2" data-toggle="modal" data-target="#{{ president.modal_id }}">
+                                        <i class="fa-solid fa-magnifying-glass-plus mt-3"></i>Bio
+                                    </a> 
+            
+                                    <img src="{{ president.photo_url }}" width="80px" height="80px" class="ml-2 mr-2">
+                                    <b class="ml-3">{{ president.fullname }}</b>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-12 m-3 d-flex justify-content-center">
+                <div class="card border-bottom-primary shadow w-75">
+                    <div class="card-body">
+                        <h5 class="card-title text-center"><b>Vice President</b></h5>
+                        <hr>
+                        <div class="row">
+                            {% for vicepresident in vicepresident %}
+                            <div class="col-md-4">
+                                <div class="d-flex mb-3">
+                                    <input style="height:15px; width:15px;" type="radio" name="vicepresident" value="{{ vicepresident }}">
+                                    
+                                    <a href="#" class="btn btn-primary ml-2" data-toggle="modal" data-target="#{{ vicepresident.modal_id }}">
+                                        <i class="fa-solid fa-magnifying-glass-plus mt-3"></i>Bio
+                                    </a> 
+            
+                                    <img src="{{ vicepresident.photo_url }}" width="80px" height="80px" class="ml-2 mr-2">
+                                    <b class="ml-3">{{ vicepresident.fullname }}</b>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-12 m-3 d-flex justify-content-center">
+                <div class="card border-bottom-primary shadow w-75">
+                    <div class="card-body">
+                        <h5 class="card-title text-center"><b>Secretary</b></h5>
+                        <hr>
+                        <div class="row">
+                            {% for secretary in secretary %}
+                            <div class="col-md-4">
+                                <div class="d-flex mb-3">
+                                    <input style="height:15px; width:15px;" type="radio" name="secretary" value="{{ secretary }}">
+                                    
+                                    <a href="#" class="btn btn-primary ml-2" data-toggle="modal" data-target="#{{ secretary.modal_id }}">
+                                        <i class="fa-solid fa-magnifying-glass-plus mt-3"></i>Bio
+                                    </a> 
+            
+                                    <img src="{{ secretary.photo_url }}" width="80px" height="80px" class="ml-2 mr-2">
+                                    <b class="ml-3">{{ secretary.fullname }}</b>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+
+
+
+                <div class="col-12 m-3 d-flex justify-content-center">
+                    <div class="card border-bottom-primary shadow w-75">
+                        <div class="card-body">
+                            <h5 class="card-title"><b>Treasurer</b></h5>
+                            <hr>
+                            <div class="row">
+                                
+                                {% for treasurer in treasurer %}
+                                <div class="col-md-4 border-right">
+                                    <div class="d-flex mb-3">
+                                        <input style="height:15px; width:15px;" type="radio" name="treasurer" value="{{ treasurer }}">
+                                        
+                                        <a href="#" class="btn btn-primary ml-2" data-toggle="modal" data-target="#{{ treasurer.modal_id }}">
+                                            <i class="fa-solid fa-magnifying-glass-plus mt-3"></i>Bio
+                                        </a> 
+                
+                                        <img src="{{ treasurer.photo_url }}" width="80px" height="80px" class="ml-2 mr-2">
+                                        <b class="ml-3">{{ treasurer.fullname }}</b>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+
+
+                <div class="col-12 m-3 d-flex justify-content-center">
+                    <div class="card border-bottom-primary shadow w-75">
+                        <div class="card-body">
+                            <h5 class="card-title text-center"><b>Event Coordinator</b></h5>
+                            <hr>
+                            <div class="row"> 
+                                {% for eventco in eventco %}
+                                <div class="col-md-4">
+                                    <div class="d-flex mb-3">
+                                        <input style="height:15px; width:15px;" type="radio" name="eventco" value="{{ eventco }}">
+                                        <a href="#" class="btn btn-primary ml-2" data-toggle="modal" data-target="#{{ eventco.modal_id }}">
+                                            <i class="fa-solid fa-magnifying-glass-plus mt-3"></i>Bio
+                                        </a> 
+                                        <img src="{{ eventco.photo_url }}" width="80px" height="80px" class="ml-2 mr-2">
+                                        <b class="ml-3">{{ eventco.fullname }}</b>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-12 m-3 d-flex justify-content-center">
+                    <div class="card border-bottom-primary shadow w-75">
+                        <div class="card-body">
+                            <h5 class="card-title text-center"><b>Sports and Recreation Officer</b></h5>
+                            <hr>
+                            <div class="row">
+                                {% for srofficer in srofficer %}
+                                <div class="col-md-4">
+                                    <div class="d-flex mb-3">
+                                        <input style="height:15px; width:15px;" type="radio" name="srofficer" value="{{ srofficer }}">
+                                        <a href="#" class="btn btn-primary ml-2" data-toggle="modal" data-target="#{{ srofficer.modal_id }}">
+                                            <i class="fa-solid fa-magnifying-glass-plus mt-3"></i>Bio
+                                        </a> 
+                                        <img src="{{ srofficer.photo_url }}" width="80px" height="80px" class="ml-2 mr-2">
+                                        <b class="ml-3">{{ srofficer.fullname }}</b>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-12 m-3 d-flex justify-content-center">
+                    <div class="card border-bottom-primary shadow w-75">
+                        <div class="card-body">
+                            <h5 class="card-title text-center"><b>Cultural Affairs Officer</b></h5>
+                            <hr>
+                            <div class="row">
+                                {% for culturalaffairs in culturalaffairs %}
+                                <div class="col-md-4">
+                                    <div class="d-flex mb-3">
+                                        <input style="height:15px; width:15px;" type="radio" name="culturalaffairs" value="{{ culturalaffairs }}">
+                                        <a href="#" class="btn btn-primary ml-2" data-toggle="modal" data-target="#{{ culturalaffairs.modal_id }}">
+                                            <i class="fa-solid fa-magnifying-glass-plus mt-3"></i>Bio
+                                        </a> 
+                                        <img src="{{ culturalaffairs.photo_url }}" width="80px" height="80px" class="ml-2 mr-2">
+                                        <b class="ml-3">{{ culturalaffairs.fullname }}</b>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-12 m-3 d-flex justify-content-center">
+                    <div class="card border-bottom-primary shadow w-75">
+                        <div class="card-body">
+                            <h5 class="card-title text-center"><b>Department Representative</b></h5>
+                            <hr>
+                            <div class="row"> 
+                                {% for departmenthead in departmenthead %}
+                                <div class="col-md-4">
+                                    <div class="d-flex mb-3">
+                                        <input style="height:15px; width:15px;" type="radio" name="departmenthead" value="{{ departmenthead }}">
+                                        <a href="#" class="btn btn-primary ml-2" data-toggle="modal" data-target="#{{ departmenthead.modal_id }}">
+                                            <i class="fa-solid fa-magnifying-glass-plus mt-3"></i>Bio
+                                        </a> 
+                                        <img src="{{ departmenthead.photo_url }}" width="80px" height="80px" class="ml-2 mr-2">
+                                        <b class="ml-3">{{ departmenthead.fullname }}</b>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+
+        </div>
+    {% if not request.user.is_superuser %}
+    <div class="d-flex justify-content-center mt-5 mb-5">
+        <input type="submit" class="btn btn-primary" value="Vote">
+    </div>
+    {% endif %}
+</form>
+    
+    {% for president in president %}
+    <!-- Modal -->
+    <div class="modal fade" id="{{president.modal_id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"><b>{{ president.fullname }}'s</b> Bio</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">{{president.bio}}</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Modal -->
+    {% endfor %}
+
+
+    {% for vicepresident in vicepresident %}
+    <!-- Modal -->
+    <div class="modal fade" id="{{vicepresident.modal_id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"><b>{{ vicepresident.fullname }}'s</b> Bio</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">{{vicepresident.bio}}</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Modal -->
+    {% endfor %}
+
+    {% for secretary in secretary %}
+    <!-- Modal -->
+    <div class="modal fade" id="{{secretary.modal_id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"><b>{{ secretary.fullname }}'s</b> Bio</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">{{secretary.bio}}</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Modal -->
+    {% endfor %}
+
+
+    {% for treasurer in treasurer %}
+    <!-- Modal -->
+    <div class="modal fade" id="{{treasurer.modal_id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"><b>{{ treasurer.fullname }}'s</b> Bio</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">{{treasurer.bio}}</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Modal -->
+    {% endfor %}
+
+    {% for eventco in eventco %}
+    <!-- Modal -->
+    <div class="modal fade" id="{{eventco.modal_id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"><b>{{ eventco.fullname }}'s</b> Bio</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">{{eventco.bio}}</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Modal -->
+    {% endfor %}
+
+    {% for srofficer in srofficer %}
+    <!-- Modal -->
+    <div class="modal fade" id="{{srofficer.modal_id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"><b>{{ srofficer.fullname }}'s</b> Bio</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">{{srofficer.bio}}</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Modal -->
+    {% endfor %}
+
+
+    {% for culturalaffairs in culturalaffairs %}
+    <!-- Modal -->
+    <div class="modal fade" id="{{culturalaffairs.modal_id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"><b>{{ culturalaffairs.fullname }}'s</b> Bio</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">{{culturalaffairs.bio}}</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Modal -->
+    {% endfor %}
+
+    {% for departmenthead in departmenthead %}
+    <!-- Modal -->
+    <div class="modal fade" id="{{departmenthead.modal_id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"><b>{{ departmenthead.fullname }}'s</b> Bio</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">{{departmenthead.bio}}</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Modal -->
+    {% endfor %}
+
+
+{% endblock body %}
