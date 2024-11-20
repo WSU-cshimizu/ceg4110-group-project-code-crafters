@@ -48,7 +48,7 @@
         box-sizing: border-box; /* Include padding in the width calculation */
       }
       
-      /* Keyframe for continuous sliding */
+      
       @keyframes slide {
         0% {
           transform: translateX(0);
@@ -58,11 +58,27 @@
         }
       }
       
-      /* Optional Styling for Smooth Hover Effect */
+      
       .slider-item:hover {
-        transform: scale(1.05); /* Slight zoom on hover */
+        transform: scale(1.05); 
         transition: transform 0.3s ease;
       }
+
+      .btn-custom {
+          background-color: #060546;
+          color: #fff;
+          border: none;
+          padding: 10px 20px;
+          border-radius: 5px;
+          font-size: 16px;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+      }
+
+      .btn-custom:hover {
+          background-color: #003ce8;
+          color: #ffffff;
+      }   
       
       
     </style>
@@ -102,7 +118,7 @@
         <div class="row">
           <div class="col-lg-6 d-flex flex-column justify-content-center">
             <h1 data-aos="fade-up" data-aos-duration="1000" data-aos-easing="ease-in-out">A voting system for WSU students at <span style='color: #045f03'>Wright State University</span>
-            {% comment %} </h1><h2 data-aos-delay="400" data-aos="fade-up" data-aos-duration="1000" data-aos-easing="ease-in-out">WSU VOTE ONLINE</h2> {% endcomment %}
+            
             <div data-aos-delay="600" data-aos="fade-up" data-aos-duration="1000" data-aos-easing="ease-in-out">
               <div class="text-center text-lg-start">
                 <a href="{% url 'login' %}" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
@@ -134,7 +150,6 @@
           <div class="slider-container" >
 
               <div class="slider-track">
-                <!-- Displaying only the first four items from the backend data -->
                 {% for can in candidates %}
                 <div class="slider-item" data-aos="fade-up" data-aos-delay="200">
                   
@@ -324,6 +339,39 @@
       </section>
        <!-- End election Section -->
       
+
+       <!-- ======= User Feedback Section ======= -->
+      <section id="feedback1" class="services p-0">
+        <section class="bsb-service-7 pb-5  aos-animate" data-aos="fade-up" style="padding: 30px 0">
+          <div class="container">
+            <div class="row justify-content-md-center">
+              <div class="col-12 col-md-10 col-lg-8 col-xl-7">
+                <header class="section-header">
+                  <p>FeedBack</p>
+                </header>
+                <h2 class="display-6 mb-5 mb-xl-9 text-center">Your opion matters to us. Leave us your thoughts.</h2>
+              </div>
+            </div>
+          </div>
+        
+          <div class="container aos-animate" data-aos="fade-up" data-aos-delay="200">
+            <form id="feedbackForm" class="feedback-form text-center">
+              <div class="mb-4">
+                  <input type="email" id="email" name="email" class="form-control" style="width: 50%; margin: 0 auto;" placeholder="Enter your email" required>
+              </div>
+              
+              <textarea id="feedback" name="feedback" class="form-control" rows="6" 
+                style="width: 50%; margin: 0 auto; resize: none;"
+                placeholder="Write your feedback here..." required></textarea>
+              <div class="text-center mt-4">
+                  <button type="submit" class="btn btn-custom">Submit Feedback</button>
+              </div>
+          </form>
+          </div>
+        </section>
+      </section>
+    <!-- End  feedback Section -->
+
   
     </main>
   <footer id="footer" class="footer">
@@ -368,6 +416,8 @@
     <script>
         AOS.init();
     </script>
+
+    
 
     <script>
       const sliderTrack = document.querySelector('.slider-track');
@@ -784,8 +834,23 @@
 
     </script>
 
-
-<!-- TEST TIMER -->
+      {% comment %} User feedback fomr handling {% endcomment %}
+      <script>
+        document.getElementById('feedbackForm').addEventListener('submit', function(e) {
+          e.preventDefault();
+          const email = document.getElementById('email').value;
+          const feedback = document.getElementById('feedback').value;
+          fetch('/submit-feedback/', {method: 'POST',headers: {'X-CSRFToken': '{{ csrf_token }}','Content-Type': 'application/x-www-form-urlencoded',},
+          body: `email=${email}&feedback=${feedback}`,
+        }).then(response => {
+          // Clear the input fields upon successful submission
+          document.getElementById('email').value = '';
+          document.getElementById('feedback').value = '';
+          window.location.href = window.location.href;
+        })
+      });
+        
+     </script>
 
   
 

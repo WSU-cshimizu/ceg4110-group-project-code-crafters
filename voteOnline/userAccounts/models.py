@@ -50,3 +50,12 @@ class Account(AbstractUser):
 
     def __str__(self):
         return self.last_name + ", " + self.first_name
+
+
+class Feedback(models.Model):
+    email = models.EmailField()
+    feedback = models.TextField()
+    submitted_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Feedback from {self.email} at {self.submitted_at}"

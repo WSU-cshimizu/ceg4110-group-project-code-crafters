@@ -172,3 +172,42 @@ def logout_view(request):
     logout(request)
     return render(request, 'account/login.html')
 
+
+
+@csrf_exempt
+def submit_feedback(request):
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        feedback_text = request.POST.get('feedback')
+
+        
+        feedback = Feedback(email=email, feedback=feedback_text)
+        feedback.save()
+
+
+        send_feedback_emails(email, feedback_text)
+        return JsonResponse({'success': True})
+
+
+
+def send_feedback_emails(user_email, feedback_text):
+
+    sender_email = settings.OTP_EMAIL
+    sender_password = settings.OTP_PASSWORD
+
+    user_subject = "Feedback Received"
+    user_message = f"Dear User,\n\nThank you for your feedback. Here is what you submitted:\n\n{feedback_text}\n\nBest regards,\nYour Team"
+
+    admin_subject = "New Feedback Received"
+    admin_message = f"A new feedback has been submitted by {user_email}.\n\nFeedback:\n{feedback_text}"
+
+    send_email(sender_email, sender_password, user_subject, user_message, user_email)
+    send_email(sender_email, sender_password, admin_subject, admin_message, sender_email)
+
+def send_email(sender_email, sender_password, subject, text, receiver_email):
+    message = f"Subject: {subject}\n\n{text}"
+    server = smtplib.SMTP('smtp.gmail.com', 587)
+    server.starttls()
+    server.login(sender_email, sender_password)
+    server.sendmail(sender_email, receiver_email, message)
+    server.quit()
