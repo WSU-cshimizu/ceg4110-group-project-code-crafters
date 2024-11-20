@@ -7,8 +7,9 @@ from django.conf import settings
 import sweetify
 import random as r
 import smtplib
-from random import sample
 import datetime
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 
 def landingpage(request):
     if votingschedule.objects.filter(department='CSM').exists():
@@ -45,7 +46,10 @@ def landingpage(request):
     cla_candidates = CLA_Candidate.objects.all()
     cbus_candidates = CBUS_Candidate.objects.all()
     
+    # Combine all candidates into one list
+    all_candidates = list(main_candidates) + list(cecs_candidates) + list(csm_candidates) + list(cla_candidates) + list(cbus_candidates)
 
+   
     
     context = {
         'CSM': CSM,
@@ -57,7 +61,7 @@ def landingpage(request):
         'schedules': schedules,
         'candidates': all_candidates
     }
-    return render(request, 'account/landingpage.html', context)
+    return render(request, 'landingpage.html', context)
 
 
 def generate_otp():
@@ -114,8 +118,8 @@ def login_view(request):
                 return HttpResponseRedirect(reverse('home'))
         else:
             sweetify.error(request, 'Invalid Credentials')
-            return render(request, 'account/login.html', {'error': 'Invalid Credentials'})
-    return render(request, 'account/login.html')
+            return render(request, 'login.html', {'error': 'Invalid Credentials'})
+    return render(request, 'login.html')
 
 
 def verify(request):
@@ -138,9 +142,9 @@ def verify(request):
             return HttpResponseRedirect(reverse('home'))
         else:
             print("failed")
-            return render(request, 'account/verify.html', {'error': 'OTP is incorrect!', 'otp_form': otp_form})
+            return render(request, 'verify.html', {'error': 'OTP is incorrect!', 'otp_form': otp_form})
 
-    return render(request, 'account/verify.html', context)
+    return render(request, 'verify.html', context)
 
 
 def register_view(request):
@@ -152,26 +156,26 @@ def register_view(request):
         password2 = request.POST['password2']
         if password1 != password2:
             sweetify.error(request, 'Password do not match!')
-            return render(request, 'account/register.html', {'error': 'Password do not match!', 'Registration_Form':Registration_Form})
+            return render(request, 'register.html', {'error': 'Password do not match!', 'Registration_Form':Registration_Form})
         elif Registration_Form.is_valid():
             Registration_Form.save()
             sweetify.success(request, 'Registration Successful')
             return HttpResponseRedirect(reverse('login'))
         elif Account.objects.filter(email=email).exists():
             sweetify.error(request, 'Email already exist!')
-            return render(request, 'account/register.html', {'error': 'Email already exist!','Registration_Form':Registration_Form})
+            return render(request, 'register.html', {'error': 'Email already exist!','Registration_Form':Registration_Form})
         else:
             sweetify.error(request, 'Invalid Credentials')
-            return render(request, 'account/register.html', {'error': 'Invalid Credentials','Registration_Form':Registration_Form})
-    return render(request, 'account/register.html', {'Registration_Form':Registration_Form})
+            return render(request, 'register.html', {'error': 'Invalid Credentials','Registration_Form':Registration_Form})
+    return render(request, 'register.html', {'Registration_Form':Registration_Form})
 
 
 def logout_view(request):
     logout(request)
-    return render(request, 'account/login.html')
+    return render(request, 'login.html')
 
 
-
+################ User Feedback ############
 @csrf_exempt
 def submit_feedback(request):
     if request.method == 'POST':

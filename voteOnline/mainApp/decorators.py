@@ -2,7 +2,7 @@ from functools import wraps
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
-from main.models import *
+from mainApp.models import *
 import datetime
 import sweetify
 
@@ -21,7 +21,7 @@ def Records_exist(function):
   @wraps(function)
   def wrap(request, *args, **kwargs):
         profile = request.user
-        if Records.objects.filter(owner=profile):
+        if UserRecords.objects.filter(owner=profile):
              return function(request, *args, **kwargs)
         else:
             sweetify.error(request, "You don't have a voting Records yet")

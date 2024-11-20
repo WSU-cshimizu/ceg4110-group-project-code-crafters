@@ -29,7 +29,7 @@ class RegistrationForm(FormSettings):
       domain = formEmail.split('@')[1]
       domain_list = ["gmail.com"]
       if domain not in domain_list:
-         raise forms.ValidationError("Please enter wsu gsuite email")
+         raise forms.ValidationError("Please enter wsu email")
       if self.instance.pk is None: 
          if Account.objects.filter(email=formEmail).exists():
                raise forms.ValidationError(

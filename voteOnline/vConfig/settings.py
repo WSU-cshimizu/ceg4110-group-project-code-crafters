@@ -11,6 +11,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
+AUTH_USER_MODEL = 'userAccounts.Account'
+
+SWEETIFY_SWEETALERT_LIBRARY = 'sweetalert2'
 
 # Application definition
 

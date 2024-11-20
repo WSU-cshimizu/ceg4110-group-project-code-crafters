@@ -52,6 +52,7 @@ class Account(AbstractUser):
         return self.last_name + ", " + self.first_name
 
 
+
 class Feedback(models.Model):
     email = models.EmailField()
     feedback = models.TextField()
