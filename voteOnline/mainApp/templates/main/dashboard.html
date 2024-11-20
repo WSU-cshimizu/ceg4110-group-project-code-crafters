@@ -1,0 +1,364 @@
+{% extends 'main/layout.html' %}
+
+
+{% block body %}
+            <!-- Begin Page Content -->
+            <div class="container-fluid">
+
+                    <h1 class="h3 mb-2 text-primary font-weight-bolder text-center">Dashboard</h1><br>
+
+                <div class="row" data-aos="fade-up" data-aos-duration="1000" data-aos-easing="ease-in-out">
+
+                    <div class="col-xl-3 col-md-6 mb-6 mb-2" >
+                        <div class="card border-left-primary shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        
+                                        <a href="{% url 'voters' %}">
+                                        <div class="text-xs font-weight-bold text-primary text-upperCLAe mb-1">
+                                            Registered Students/Voters
+                                        </div>
+                                        </a>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ registered }}</div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fa-solid fa-people-group fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+       
+                    <div class="col-xl-3 col-md-6 mb-6 mb-2">
+                        <div class="card border-left-info shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <a href="{% url 'voters' %}">
+                                        <div class="text-xs font-weight-bold text-info text-upperCLAe mb-1">
+                                            Voted Students/Voters
+                                        </div>
+                                        </a>
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col-auto">
+                                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"> {{ voted }} </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fa-solid fa-people-group fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-3 col-md-6 mb-6 mb-2">
+                        <div class="card border-left-success shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                       
+
+                                        <div class="text-xs font-weight-bold text-primary text-upperCLAe mb-1">
+                                            Total Candidates
+                                        </div>
+
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ totalcandidates }}</div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fa-solid fa-people-group fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+            
+                    <div class="col-xl-3 col-md-6 mb-6 mb-2">
+                        <div class="card border-left-success shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                       
+                                        <a href="{% url 'maincandidates' %}"> 
+                                        <div class="text-xs font-weight-bold text-primary text-upperCLAe mb-1">
+                                            MAIN WSU Candidates
+                                        </div>
+                                        </a>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ maincandidates }}</div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fa-solid fa-people-line fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                
+                    <div class="col-xl-3 col-md-6 mb-6 mb-2">
+                        <div class="card border-left-warning shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+
+                                        <a href="{% url 'CECScandidates' %}"> 
+                                        <div class="text-xs font-weight-bold text-primary text-upperCLAe mb-1">
+                                            CECS Candidates
+                                        </div>
+                                        </a>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800"> {{ CECScandidates }} </div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fa-solid fa-helmet-safety fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-xl-3 col-md-6 mb-6 mb-2">
+                        <div class="card border-left-secondary shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+
+                                        <a href="{% url 'CBUScandidates' %}"> 
+                                        <div class="text-xs font-weight-bold text-primary text-upperCLAe mb-1">
+                                            CBUS Candidates
+                                        </div>
+                                        </a>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ CBUScandidates }} </div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fa-solid fa-chalkboard-user fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-xl-3 col-md-6 mb-6 mb-2">
+                        <div class="card border-left-danger shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+
+                                        <a href="{% url 'CLAcandidates' %}">  
+                                        <div class="text-xs font-weight-bold text-primary text-upperCLAe mb-1">
+                                            CLA Candidates
+                                        </div>
+                                        </a>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800"> {{ CLAcandidates }} </div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fa-solid fa-atom fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-3 col-md-6 mb-6 mb-2">
+                        <div class="card border-left-dark shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+
+                                        <a href="{% url 'CSMcandidates' %}"> 
+                                        <div class="text-xs font-weight-bold text-primary text-upperCLAe mb-1">
+                                            CSM Candidates
+                                        </div>
+                                        </a>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800"> {{ CSMcandidates }} </div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fa-solid fa-screwdriver-wrench fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <h1 class="h3 mb-2 text-primary font-weight-bolder text-center mt-5">Tallies</h1><br>
+
+                <div class="row mt-3" data-aos="fade-right" data-aos-anchor="#trigger-left" data-aos-duration="1000" data-aos-easing="ease-in-out">
+
+                    <div class="col-lg-6" data-aos-anchor-placement="top-center">
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary text-center">CECS Deparment Tally</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered tally-table" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <th>Position</th>
+                                                <th>Full Name</th>
+                                                <th>Votes</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for CECS in CECS %}
+                                            <tr>
+                                                <td>{{CECS.position}}</td>
+                                                <td>{{CECS.fullname}}</td>
+                                                <td>{{ CECS.voters.all|length }} </td> 
+                                            </tr>   
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-lg-6" data-aos-anchor-placement="top-center">
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary text-center">CBUS Deparment Tally</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered tally-table" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <th>Position</th>
+                                                <th>Full Name</th>
+                                                <th>Votes</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for CBUS in CBUS %}
+                                            <tr>
+                                                <td>{{CBUS.position}}</td>
+                                                <td>{{CBUS.fullname}}</td>
+                                                <td>{{ CBUS.voters.all|length }} </td> 
+                                            </tr>   
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-lg-6" data-aos-anchor-placement="top-center">
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary text-center">CLA Deparment Tally</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered tally-table" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <th>Position</th>
+                                                <th>Full Name</th>
+                                                <th>Votes</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for CLA in CLA %}
+                                            <tr>
+                                                <td>{{CLA.position}}</td>
+                                                <td>{{CLA.fullname}}</td>
+                                                <td>{{ CLA.voters.all|length }} </td> 
+                                            </tr>   
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-lg-6" data-aos-anchor-placement="top-center">
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary text-center">CSM Deparment Tally</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered tally-table" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <th>Position</th>
+                                                <th>Full Name</th>
+                                                <th>Votes</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for CSM in CSM %}
+                                            <tr>
+                                                <td>{{CSM.position}}</td>
+                                                <td>{{CSM.fullname}}</td>
+                                                <td>{{ CSM.voters.all|length }} </td> 
+                                            </tr>   
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-lg-6" data-aos-anchor-placement="top-center">
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary text-center">Main WSU Deparment Tally</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered tally-table" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <th>Position</th>
+                                                <th>Full Name</th>
+                                                <th>Votes</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for main in main %}
+                                            <tr>
+                                                <td>{{main.position}}</td>
+                                                <td>{{main.fullname}}</td>
+                                                <td>{{ main.voters.all|length }} </td> 
+                                            </tr>   
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    
+
+                    
+
+
+
+                    
+
+
+                </div>
+            </div>
+
+{% endblock %}

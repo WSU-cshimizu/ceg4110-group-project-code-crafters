@@ -1,0 +1,327 @@
+{% extends 'main/layout.html' %}
+
+{% block body %}
+<h1 class="h3 mb-2 text-primary font-weight-bolder text-center"> College of Liberal Arts Department Election Result</h1>
+
+        <div class="row" data-aos="fade-up" data-aos-duration="1000" data-aos-easing="ease-in-out">
+
+            <div class="col-12 m-3 d-flex justify-content-center">
+                <div class="card border-bottom-primary shadow w-75">
+                    <div class="card-body">
+                        <h5 class="h3 card-title text-center"><b>President</b></h5>
+                        <hr>
+
+                        <div class="row">
+                            <div class="h4 col-6 text-center">
+                                Candidate
+                            </div>
+                            <div class="h4 col-6 text-center">
+                                Votes
+                            </div>
+                        </div>
+                        <hr>
+
+                        <div class="row">
+                            <div class="col-6 text-center mt-3">
+                                <ul class="h5 text-left" style="list-style: none;">
+                                    {% for president in president %}
+                                    <li> {{president.fullname}} </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+
+                            <div class="col-6 text-center mt-3">
+                                <ul class="h5" style="list-style: none;">
+                                    {% for president in president %}
+                                    <li> {{president.voters.all|length }} </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+        
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 m-3 d-flex justify-content-center">
+                <div class="card border-bottom-primary shadow w-75">
+                    <div class="card-body">
+                        <h5 class="h3 card-title text-center"><b>Vice President</b></h5>
+                        <hr>
+
+                        <div class="row">
+                            <div class="h4 col-6 text-center">
+                                Candidate
+                            </div>
+                            <div class="h4 col-6 text-center">
+                                Votes
+                            </div>
+                        </div>
+                        <hr>
+
+                        <div class="row">
+                            <div class="col-6 text-center mt-3">
+                                <ul class="h5 text-left" style="list-style: none;">
+                                    {% for vicepresident in vicepresident %}
+                                    <li> {{vicepresident.fullname}} </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+
+                            <div class="col-6 text-center mt-3">
+                                <ul class="h5" style="list-style: none;">
+                                    {% for vicepresident in vicepresident %}
+                                    <li> {{vicepresident.voters.all|length }} </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+        
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-12 m-3 d-flex justify-content-center">
+                <div class="card border-bottom-primary shadow w-75">
+                    <div class="card-body">
+                        <h5 class="h3 card-title text-center"><b>Secretary</b></h5>
+                        <hr>
+
+                        <div class="row">
+                            <div class="h4 col-6 text-center">
+                                Candidate
+                            </div>
+                            <div class="h4 col-6 text-center">
+                                Votes
+                            </div>
+                        </div>
+                        <hr>
+
+                        <div class="row">
+                            <div class="col-6 text-center mt-3">
+                                <ul class="h5 text-left" style="list-style: none;">
+                                    {% for secretary in secretary %}
+                                    <li> {{secretary.fullname}} </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+
+                            <div class="col-6 text-center mt-3">
+                                <ul class="h5" style="list-style: none;">
+                                    {% for secretary in secretary %}
+                                    <li> {{secretary.voters.all|length }} </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+        
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="col-12 m-3 d-flex justify-content-center">
+                <div class="card border-bottom-primary shadow w-75">
+                    <div class="card-body">
+                        <h5 class="h3 card-title text-center"><b>Treasurer</b></h5>
+                        <hr>
+
+                        <div class="row">
+                            <div class="h4 col-6 text-center">
+                                Candidate
+                            </div>
+                            <div class="h4 col-6 text-center">
+                                Votes
+                            </div>
+                        </div>
+                        <hr>
+
+                        <div class="row">
+                            <div class="col-6 text-center mt-3">
+                                <ul class="h5 text-left" style="list-style: none;">
+                                    {% for treasurer in treasurer %}
+                                    <li> {{treasurer.fullname}} </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+
+                            <div class="col-6 text-center mt-3">
+                                <ul class="h5" style="list-style: none;">
+                                    {% for treasurer in treasurer %}
+                                    <li> {{treasurer.voters.all|length }} </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+        
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-12 m-3 d-flex justify-content-center">
+                <div class="card border-bottom-primary shadow w-75">
+                    <div class="card-body">
+                        <h5 class="h3 card-title text-center"><b>Event Coordinator</b></h5>
+                        <hr>
+
+                        <div class="row">
+                            <div class="h4 col-6 text-center">
+                                Candidate
+                            </div>
+                            <div class="h4 col-6 text-center">
+                                Votes
+                            </div>
+                        </div>
+                        <hr>
+
+                        <div class="row">
+                            <div class="col-6 text-center mt-3">
+                                <ul class="h5 text-left" style="list-style: none;">
+                                    {% for eventco in eventco %}
+                                    <li> {{eventco.fullname}} </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+
+                            <div class="col-6 text-center mt-3">
+                                <ul class="h5" style="list-style: none;">
+                                    {% for eventco in eventco %}
+                                    <li> {{eventco.voters.all|length }} </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+        
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-12 m-3 d-flex justify-content-center">
+                <div class="card border-bottom-primary shadow w-75">
+                    <div class="card-body">
+                        <h5 class="h3 card-title text-center"><b>Sports and Recreation Officer</b></h5>
+                        <hr>
+
+                        <div class="row">
+                            <div class="h4 col-6 text-center">
+                                Candidate
+                            </div>
+                            <div class="h4 col-6 text-center">
+                                Votes
+                            </div>
+                        </div>
+                        <hr>
+
+                        <div class="row">
+                            <div class="col-6 text-center mt-3">
+                                <ul class="h5 text-left" style="list-style: none;">
+                                    {% for srofficer in srofficer %}
+                                    <li> {{srofficer.fullname}} </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+
+                            <div class="col-6 text-center mt-3">
+                                <ul class="h5" style="list-style: none;">
+                                    {% for srofficer in srofficer %}
+                                    <li> {{srofficer.voters.all|length }} </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+        
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-12 m-3 d-flex justify-content-center">
+                <div class="card border-bottom-primary shadow w-75">
+                    <div class="card-body">
+                        <h5 class="h3 card-title text-center"><b>Cultural Affairs Officer</b></h5>
+                        <hr>
+
+                        <div class="row">
+                            <div class="h4 col-6 text-center">
+                                Candidate
+                            </div>
+                            <div class="h4 col-6 text-center">
+                                Votes
+                            </div>
+                        </div>
+                        <hr>
+
+                        <div class="row">
+                            <div class="col-6 text-center mt-3">
+                                <ul class="h5 text-left" style="list-style: none;">
+                                    {% for culturalaffairs in culturalaffairs %}
+                                    <li> {{culturalaffairs.fullname}} </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+
+                            <div class="col-6 text-center mt-3">
+                                <ul class="h5" style="list-style: none;">
+                                    {% for culturalaffairs in culturalaffairs %}
+                                    <li> {{culturalaffairs.voters.all|length }} </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+        
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-12 m-3 d-flex justify-content-center">
+                <div class="card border-bottom-primary shadow w-75">
+                    <div class="card-body">
+                        <h5 class="h3 card-title text-center"><b>Department Representative</b></h5>
+                        <hr>
+
+                        <div class="row">
+                            <div class="h4 col-6 text-center">
+                                Candidate
+                            </div>
+                            <div class="h4 col-6 text-center">
+                                Votes
+                            </div>
+                        </div>
+                        <hr>
+
+                        <div class="row">
+                            <div class="col-6 text-center mt-3">
+                                <ul class="h5 text-left" style="list-style: none;">
+                                    {% for departmenthead in departmenthead %}
+                                    <li> {{departmenthead.fullname}} </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+
+                            <div class="col-6 text-center mt-3">
+                                <ul class="h5" style="list-style: none;">
+                                    {% for departmenthead in departmenthead %}
+                                    <li> {{departmenthead.voters.all|length }} </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+        
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+
+
+
+{% endblock body %}

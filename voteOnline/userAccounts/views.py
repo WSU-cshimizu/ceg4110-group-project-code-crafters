@@ -45,8 +45,6 @@ def landingpage(request):
     cla_candidates = CLA_Candidate.objects.all()
     cbus_candidates = CBUS_Candidate.objects.all()
     
-    # Combine all candidates into one list
-    all_candidates = list(main_candidates) + list(cecs_candidates) + list(csm_candidates) + list(cla_candidates) + list(cbus_candidates)
 
     
     context = {
@@ -71,7 +69,7 @@ def generate_otp():
 
 def login_view(request):
     if request.method == 'POST':
-        email = request.POST['email']
+        email = request.POST['email'].lower()
         password = request.POST['password']
         user = authenticate(request, email=email, password=password)
         if user is not None:

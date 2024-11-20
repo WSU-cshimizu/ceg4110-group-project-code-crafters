@@ -1,0 +1,76 @@
+{% extends 'main/layout.html' %}
+
+{% block body %}
+<div class="container-fluid">
+    <div class="text-center"> 
+        <h1 class="h3 mb-2 text-primary font-weight-bolder">Voting Records</h1><br>
+    </div>
+
+    <div class="row">
+
+        {% for Records in Records %}
+            {% if Records.president or Records.vice_president or Records.secretary or Records.treasurer or Records.event_coordinator or Records.sports_recreation_officer or Records.cultural_affairs_officer or Records.departmentrepresentative %}
+                <div class="col-xl-12 col-md-12 d-flex justify-content-center" data-aos="fade-up" data-aos-duration="1000" data-aos-easing="ease-in-out"> 
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary text-center">{{ Records.department }}</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered Records_table" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <td>Date: {{ Records.created_at }} <b></b></td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Department: <b>{{ Records.department }}</b> </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Name: <b>{{ Records.owner }}</b> </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <h4>Votes</h4>
+                                                <ul style="list-style: none; margin-left: -40px;">
+                                                    {% if Records.president %}
+                                                    <li> President - {{Records.president}}</li>
+                                                    {% endif %}
+                                                    {% if Records.vice_president %}
+                                                    <li> Vice President - {{Records.vice_president}} </li>
+                                                    {% endif %}
+                                                    {% if Records.secretary %}
+                                                    <li> Secretary - {{Records.secretary}}</li>
+                                                    {% endif %}
+                                                    {% if Records.treasurer %}
+                                                    <li> Treasurer - {{Records.treasurer}} </li>
+                                                    {% endif %}
+                                                    {% if Records.event_coordinator %}
+                                                    <li> Event Coordinator - {{Records.event_coordinator}} </li>
+                                                    {% endif %}
+                                                    {% if Records.sports_recreation_officer %}
+                                                    <li> Sports and Recreation Officer - {{Records.sports_recreation_officer}} </li>
+                                                    {% endif %}
+                                                    {% if Records.cultural_affairs_officer %}
+                                                    <li> Cultural Affairs Officer - {{Records.cultural_affairs_officer}}  </li>
+                                                    {% endif %}
+                                                    {% if Records.departmentrepresentative %}
+                                                    <li> Deparment Representative - {{Records.departmentrepresentative}}</li>
+                                                    {% endif %}
+                                                </ul>
+                                            </td>
+                                        </tr>   
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+
+    </div>
+
+</div>
+{% endblock %}
