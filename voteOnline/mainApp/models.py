@@ -50,20 +50,21 @@ class UserRecords(models.Model):
         verbose_name = "RECORDS"  
         verbose_name_plural = "RECORDS"
 
-    class MAIN_Candidate(models.Model):
+
+class MAIN_Candidate(models.Model):
     modal_id = models.CharField(max_length=50, editable=False, default=modalID_generator)
     fullname = models.CharField(max_length=50)
     photo = models.ImageField(upload_to="candidates", blank=True)
     bio = models.TextField(null=True)
     position = models.TextField(choices=(
         ('President','President'),
-         ('Vice President','Vice President'),
-         ('Treasurer','Treasurer'),
-         ('Secretary','Secretary'),
-         ('Event Coordinator','Event Coordinator'),
-         ('Sports and Recreation Officer','Sports and Recreation Officer'),
-         ('Cultural affairs officer','Cultural affairs officer'),
-         ('Department Representative','Department Representative'),
+        ('Vice President','Vice President'),
+        ('Treasurer','Treasurer'),
+        ('Secretary','Secretary'),
+        ('Event Coordinator','Event Coordinator'),
+        ('Sports and Recreation Officer','Sports and Recreation Officer'),
+        ('Cultural affairs officer','Cultural affairs officer'),
+        ('Department Representative','Department Representative'),
         ), null=True)
     voters = models.ManyToManyField(Account, blank=True)
 
