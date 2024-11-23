@@ -18,7 +18,6 @@ The scribe is the person taking the _notes_. This is encouraged to be a single p
   * Updating URL structures
 
 
-
 ## Notes
 * The team collaboratively worked on debugging design and feature issues.
 * Discussed initiating the handling of voting features by departments, focusing on tallying votes, ballots, and results.
