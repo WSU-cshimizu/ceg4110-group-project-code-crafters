@@ -220,15 +220,12 @@ The system shall be tested to prevent duplicate votes by attempting multiple sub
   * Vote completes if not present else throws error
 
 **Requirement 12.1**   
-The system shall conduct usability testing sessions with students to gather feedback on the voting interface.
-* Testing sessions
-  * Every feature of the UI will be tested by all students who will give feedback to ensure that the user interface is intuitive
+The system shall be tested on multiple device types (mobile, tablet, desktop) and screen resolutions to verify that the voting interface is responsive and maintains usability.
+* Each feature of the UI will be tested across various screen sizes to ensure consistent functionality and visibility.
 
 **Requirement 12.2**   
-Adjustments shall be made based on user feedback to enhance usability.
-* Voter feedback 
-  * Once voter feedback has been submitted, the feedback will be sent to the developers
-  * Depending upon the state of the project, the feedback will be implemented to the project
+Adjustments shall be made based on identified issues to enhance the responsiveness and usability of the interface.
+* Issues will be documented and prioritized, then addressed by the development team with re-testing to validate fixes.
 
 **Requirement 13.1**   
 The system shall be tested under high user loads to confirm its ability to handle multiple concurrent users.
