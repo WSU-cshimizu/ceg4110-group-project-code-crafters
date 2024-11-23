@@ -62,9 +62,9 @@
 * Requirement 11.1: The system shall be tested to prevent duplicate votes by attempting multiple submissions from a single user.
 
 ### Testing Story 2
->**As a test engineer, I want to conduct usability testing with students to ensure the voting interface is clear and easy to use.**
-* Requirement 12.1: The system shall conduct usability testing sessions with students to gather feedback on the voting interface.
-* Requirement 12.2: Adjustments shall be made based on user feedback to enhance usability.
+>**As a test engineer, I want to ensure that the voting interface displays correctly and remains easy to use across various devices and screen sizes.**
+* Requirement 12.1: The system shall be tested on multiple device types (mobile, tablet, desktop) and screen resolutions to verify that the voting interface is responsive and maintains usability.
+* Requirement 12.2: Adjustments shall be made based on identified issues to enhance the responsiveness and usability of the interface.
 
 ### Testing Story 3
 >**As a test engineer, I want to test the system under high user loads to confirm it can handle many students voting at the same time.**
