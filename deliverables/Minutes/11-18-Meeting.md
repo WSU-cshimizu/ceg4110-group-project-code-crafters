@@ -34,3 +34,4 @@ The scribe is the person taking the _notes_. This is encouraged to be a single p
 ## Signatures
 Prashant Rai  
 Dhruv Patel
+Michael Donahue
