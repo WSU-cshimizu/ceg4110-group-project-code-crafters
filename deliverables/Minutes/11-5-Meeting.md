@@ -32,13 +32,6 @@ The scribe is the person taking the _notes_. This is encouraged to be a single p
 * research done for reports on softwre interface and summary was written.
 * Email was created and app key was generated for the project to use specifically for smtp process.
 
-## Summary on reports
-* citations of reports
-    * link-1
-    * link-2
-
-* description here......
-
 
 ## Signatures
 Prashant Rai  
