@@ -3,8 +3,6 @@ from django.urls import reverse
 from userAccounts.models import *
 from mainApp.models import *
 
-
-
 class CLABallotTest(TestCase):
 
     def setUp(self):

@@ -21,7 +21,7 @@ The system will allow students to participate in student elections by voting onl
 
 ### Testing stories
 - As a test engineer, I want to validate the system’s security by attempting to cast multiple votes to confirm it can prevent duplicates.
-- As a test engineer, I want to conduct usability testing with students to ensure the voting interface is clear and easy to use. 
+- As a test engineer, I want to test the responsiveness of the website across different browers and different devices
 - As a test engineer, I want to test the system under high user loads to confirm it can handle many students voting at the same time.
 
 
