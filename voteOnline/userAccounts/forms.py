@@ -27,7 +27,7 @@ class RegistrationForm(FormSettings):
       formEmail = self.cleaned_data['email'].lower()
 
       domain = formEmail.split('@')[1]
-      domain_list = ["gmail.com"]
+      domain_list = ["wright.edu"]
       if domain not in domain_list:
          raise forms.ValidationError("Please enter wsu email")
       if self.instance.pk is None: 
@@ -87,7 +87,7 @@ class UpdateProfileForm(FormSettings):
       formEmail = self.cleaned_data['email'].lower()
 
       domain = formEmail.split('@')[1]
-      domain_list = ["@gmail.com"]
+      domain_list = ["wright.edu"]
       if domain not in domain_list:
          raise forms.ValidationError("Please enter wsu email")
       if self.instance.pk is None: 
