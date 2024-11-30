@@ -112,7 +112,7 @@ STATICFILES_DIRS = [
     "mainApp/static",
 ]
 
-OTP = False
+OTP = True
 OTP_EMAIL = "wsuvoteonline@gmail.com"
 OTP_PASSWORD = "dfyrkspgkcwttqyy"
 
