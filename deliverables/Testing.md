@@ -51,10 +51,14 @@ We will use Locust, a powerful load-testing tool that supports simulating multip
 * Effectiveness: It provides real-time statistics like success/failure rates and response times, which are key for performance testing.
 
 ### Justification:
-This test plan aligns with the Agile SDLC as it provides quick feedback on system performance under load, which is essential for continuous integration. Locust allows us to quickly assess whether the system can handle concurrent users and maintain performance, ensuring scalability.
+This test plan aligns with the Agile SDLC as it provides quick feedback on system performance under load, which is essential for continuous integration. Locust allows us to quickly assess whether the system can handle concurrent users and maintain performance, ensuring scalability. And for this test, we applied upto 80 users to hit request and these users increases by every 5 seconds and access the login url.
 
 ### Test case: 
 1) **Locust - Start test**  
+* We can see that 111 users are requesting login just for browsing purpose.
+* 62 users are actually logging in and try to get autherized.
+* Each user can visit the url multiple times thats why the requests are more than 80 even though users were only set upto 80.
+* We see no failure and 80 users could interact with login url 173 times in 2seconds.  
 <br>
 <img src="./assets/testing/locust-1.png" width=800 height=450>  <br>
 
