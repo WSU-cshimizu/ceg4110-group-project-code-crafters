@@ -35,3 +35,37 @@ This testing approach is appropriate because it aligns with the need to ensure c
 
 ### Test case: Responsiveness in different browers(Chrome/Edge/FireFox) for different devices(Windows/Tablet/Mobile)
 <img src="./assets/testing/responsiveness.png" width=800 height=500>  <br>
+
+# Testing 13.1/13.2
+
+### Testing Plan
+The testing will focus on load testing and functional testing of the login and registration features. We will use Locust to simulate 80 concurrent users performing login operations. The main goals are to evaluate:
+* Performance under load by simulating multiple users.
+* Success and failure rates for user login attempts.
+* Response times for the login and registration processes.
+
+### Testing Framework
+We will use Locust, a powerful load-testing tool that supports simulating multiple users and tracking response times and failure rates. Locust is ideal for our needs due to:
+
+* Achievability: It integrates easily with Django and is simple to set up.
+* Effectiveness: It provides real-time statistics like success/failure rates and response times, which are key for performance testing.
+
+### Justification:
+This test plan aligns with the Agile SDLC as it provides quick feedback on system performance under load, which is essential for continuous integration. Locust allows us to quickly assess whether the system can handle concurrent users and maintain performance, ensuring scalability.
+
+### Test case: 
+1) **Locust - Start test**  
+<br>
+<img src="./assets/testing/locust-1.png" width=800 height=450>  <br>
+
+2) **Locust Result - Statics**  
+<br>
+<img src="./assets/testing/locust-2.png" width=800 height=450>  <br>
+
+3) **Locust Result - Charts**  
+<br>
+<img src="./assets/testing/locust-3.png" width=800 height=450>  <br>
+
+3) **Locust Result - Logs**  
+<br>
+<img src="./assets/testing/locust-4.png" width=800 height=450>  <br>
