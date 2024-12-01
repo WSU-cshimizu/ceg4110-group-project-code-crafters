@@ -227,7 +227,7 @@
                             <div>
                               <i class="bi bi-people " style="font-size: 2rem;"></i>
                             </div>
-                            <h4 class="fw-bold text-uppercase mb-4">User</h4>
+                            <h4 class="fw-bold text-upperCLAe mb-4">User</h4>
                             <p class="mb-4 ">The first phase is to develop a strategy for the product or service that the tech company is developing. This involves understanding the market and identifying the needs.</p>
                             
                           </div>
@@ -239,7 +239,7 @@
                             <div>
                               <i class="bi bi-person-check" style="font-size: 2rem;"></i>
                             </div>
-                            <h4 class="fw-bold text-uppercase mb-4">Admin</h4>
+                            <h4 class="fw-bold text-upperCLAe mb-4">Admin</h4>
                             <p class="mb-4 ">Once the strategy is in place, the next phase is to design the product or service. This involves creating wireframes, prototypes, and mockups to test the design.</p>
                           
                           </div>
@@ -251,7 +251,7 @@
                             <div>
                               <i class="bi bi-shield-lock" style="font-size: 2rem; "></i>
                             </div>
-                            <h4 class="fw-bold text-uppercase mb-4">Security</h4>
+                            <h4 class="fw-bold text-upperCLAe mb-4">Security</h4>
                             <p class="mb-4 ">Once the design is finalized, the next phase is to develop the product or service. This involves writing code, building databases, and creating other assets.</p>
                             
                           </div>
@@ -431,11 +431,11 @@
       });
     </script>
 
-    <!-- CEIT TIMER -->
-    {% if ceit.start > today %}
+    <!-- CECS TIMER -->
+    {% if CECS.start > today %}
     <script>
       
-    var CEIT_start_countDownDate = new Date("{{ ceit.start }} 00:01:00").getTime();
+    var CECS_start_countDownDate = new Date("{{ CECS.start }} 00:01:00").getTime();
       
       
       var x = setInterval(function() {
@@ -444,20 +444,20 @@
         var now = new Date().getTime();
           
       
-        var distance = CEIT_start_countDownDate - now;
+        var distance = CECS_start_countDownDate - now;
           
         var days = Math.floor(distance / (1000 * 60 * 60 * 24));
         var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         var seconds = Math.floor((distance % (1000 * 60)) / 1000);
           
-        document.getElementById("CEIT_start").innerHTML = days + "d " + hours + "h "
+        document.getElementById("CECS_start").innerHTML = days + "d " + hours + "h "
         + minutes + "m " + seconds + "s ";
           
           
         if (distance < 0) {
           clearInterval(x);
-          document.getElementById("CEIT_start").innerHTML = "00d 00h 00m 00s";
+          document.getElementById("CECS_start").innerHTML = "00d 00h 00m 00s";
         }
       }, 1000);
 
@@ -467,11 +467,11 @@
 
 
 
-{% if ceit.start == today %}
+{% if CECS.start == today %}
 <script>
       
 
-    var CEIT_end_countDownDate = new Date("{{ ceit.end }} 23:59:00").getTime();
+    var CECS_end_countDownDate = new Date("{{ CECS.end }} 23:59:00").getTime();
 
       
       var x = setInterval(function() {
@@ -480,20 +480,20 @@
         var now = new Date().getTime();
           
       
-        var distance = CEIT_end_countDownDate - now;
+        var distance = CECS_end_countDownDate - now;
           
         var days = Math.floor(distance / (1000 * 60 * 60 * 24));
         var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         var seconds = Math.floor((distance % (1000 * 60)) / 1000);
           
-        document.getElementById("CEIT_end").innerHTML = days + "d " + hours + "h "
+        document.getElementById("CECS_end").innerHTML = days + "d " + hours + "h "
         + minutes + "m " + seconds + "s ";
           
           
         if (distance < 0) {
           clearInterval(x);
-          document.getElementById("CEIT_end").innerHTML = "00d 00h 00m 00s";
+          document.getElementById("CECS_end").innerHTML = "00d 00h 00m 00s";
         }
       }, 1000);
 
@@ -502,13 +502,13 @@
 {% endif %}
 
 
-<!-- CTE TIMER -->
+<!-- CBUS TIMER -->
 
 
-{% if cte.start > today %}
+{% if CBUS.start > today %}
 <script>
       
-  var CTE_start_countDownDate = new Date("{{ cte.start }} 00:01:00").getTime();
+  var CBUS_start_countDownDate = new Date("{{ CBUS.start }} 00:01:00").getTime();
     
     
     var x = setInterval(function() {
@@ -517,20 +517,20 @@
       var now = new Date().getTime();
         
     
-      var distance = CTE_start_countDownDate - now;
+      var distance = CBUS_start_countDownDate - now;
         
       var days = Math.floor(distance / (1000 * 60 * 60 * 24));
       var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       var seconds = Math.floor((distance % (1000 * 60)) / 1000);
         
-      document.getElementById("CTE_start").innerHTML = days + "d " + hours + "h "
+      document.getElementById("CBUS_start").innerHTML = days + "d " + hours + "h "
       + minutes + "m " + seconds + "s ";
         
         
       if (distance < 0) {
         clearInterval(x);
-        document.getElementById("CTE_start").innerHTML = "00d 00h 00m 00s";
+        document.getElementById("CBUS_start").innerHTML = "00d 00h 00m 00s";
       }
     }, 1000);
 
@@ -541,10 +541,10 @@
 
 
 
-{% if cte.start == today %}
+{% if CBUS.start == today %}
 <script>
 
-  var CTE_end_countDownDate = new Date("{{ cte.end }} 23:59:00").getTime();
+  var CBUS_end_countDownDate = new Date("{{ CBUS.end }} 23:59:00").getTime();
     
     
     var x = setInterval(function() {
@@ -553,20 +553,20 @@
       var now = new Date().getTime();
         
     
-      var distance = CTE_end_countDownDate - now;
+      var distance = CBUS_end_countDownDate - now;
         
       var days = Math.floor(distance / (1000 * 60 * 60 * 24));
       var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       var seconds = Math.floor((distance % (1000 * 60)) / 1000);
         
-      document.getElementById("CTE_end").innerHTML = days + "d " + hours + "h "
+      document.getElementById("CBUS_end").innerHTML = days + "d " + hours + "h "
       + minutes + "m " + seconds + "s ";
         
         
       if (distance < 0) {
         clearInterval(x);
-        document.getElementById("CTE_end").innerHTML = "00d 00h 00m 00s";
+        document.getElementById("CBUS_end").innerHTML = "00d 00h 00m 00s";
       }
     }, 1000);
 
@@ -576,11 +576,11 @@
 
 
 
-{% if cas.start > today %}
-<!-- CAS TIMER -->
+{% if CLA.start > today %}
+<!-- CLA TIMER -->
 <script>
       
-  var CAS_start_countDownDate = new Date("{{ cas.start }} 00:01:00").getTime();
+  var CLA_start_countDownDate = new Date("{{ CLA.start }} 00:01:00").getTime();
     
     
     var x = setInterval(function() {
@@ -589,20 +589,20 @@
       var now = new Date().getTime();
         
     
-      var distance = CAS_start_countDownDate - now;
+      var distance = CLA_start_countDownDate - now;
         
       var days = Math.floor(distance / (1000 * 60 * 60 * 24));
       var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       var seconds = Math.floor((distance % (1000 * 60)) / 1000);
         
-      document.getElementById("CAS_start").innerHTML = days + "d " + hours + "h "
+      document.getElementById("CLA_start").innerHTML = days + "d " + hours + "h "
       + minutes + "m " + seconds + "s ";
         
         
       if (distance < 0) {
         clearInterval(x);
-        document.getElementById("CAS_start").innerHTML = "00d 00h 00m 00s";
+        document.getElementById("CLA_start").innerHTML = "00d 00h 00m 00s";
       }
     }, 1000);
 
@@ -610,11 +610,11 @@
 {% endif %}
 
 
-{% if cas.start == today %}
+{% if CLA.start == today %}
 
 <script>
 
-  var CAS_end_countDownDate = new Date("{{ cas.end }} 23:59:00").getTime();
+  var CLA_end_countDownDate = new Date("{{ CLA.end }} 23:59:00").getTime();
     
     
     var x = setInterval(function() {
@@ -623,20 +623,20 @@
       var now = new Date().getTime();
         
     
-      var distance = CAS_end_countDownDate - now;
+      var distance = CLA_end_countDownDate - now;
         
       var days = Math.floor(distance / (1000 * 60 * 60 * 24));
       var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       var seconds = Math.floor((distance % (1000 * 60)) / 1000);
         
-      document.getElementById("CAS_end").innerHTML = days + "d " + hours + "h "
+      document.getElementById("CLA_end").innerHTML = days + "d " + hours + "h "
       + minutes + "m " + seconds + "s ";
         
         
       if (distance < 0) {
         clearInterval(x);
-        document.getElementById("CAS_end").innerHTML = "00d 00h 00m 00s";
+        document.getElementById("CLA_end").innerHTML = "00d 00h 00m 00s";
       }
     }, 1000);
 
@@ -644,11 +644,11 @@
 {% endif %}
 
 
-<!-- COT TIMER -->
-{% if cot.end > today %}
+<!-- CSM TIMER -->
+{% if CSM.end > today %}
 <script>
       
-  var COT_start_countDownDate = new Date("{{ cot.start }} 00:01:00").getTime();
+  var CSM_start_countDownDate = new Date("{{ CSM.start }} 00:01:00").getTime();
     
     
     var x = setInterval(function() {
@@ -657,20 +657,20 @@
       var now = new Date().getTime();
         
     
-      var distance = COT_start_countDownDate - now;
+      var distance = CSM_start_countDownDate - now;
         
       var days = Math.floor(distance / (1000 * 60 * 60 * 24));
       var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       var seconds = Math.floor((distance % (1000 * 60)) / 1000);
         
-      document.getElementById("COT_start").innerHTML = days + "d " + hours + "h "
+      document.getElementById("CSM_start").innerHTML = days + "d " + hours + "h "
       + minutes + "m " + seconds + "s ";
         
         
       if (distance < 0) {
         clearInterval(x);
-        document.getElementById("COT_start").innerHTML = "00d 00h 00m 00s";
+        document.getElementById("CSM_start").innerHTML = "00d 00h 00m 00s";
       }
     }, 1000);
 
@@ -681,7 +681,7 @@
 {% if schedule.start == today %}
 <script>
 
-  var COT_end_countDownDate = new Date("{{ cot.end }} 23:59:00").getTime();
+  var CSM_end_countDownDate = new Date("{{ CSM.end }} 23:59:00").getTime();
     
     
     var x = setInterval(function() {
@@ -690,20 +690,20 @@
       var now = new Date().getTime();
         
     
-      var distance = COT_end_countDownDate - now;
+      var distance = CSM_end_countDownDate - now;
         
       var days = Math.floor(distance / (1000 * 60 * 60 * 24));
       var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       var seconds = Math.floor((distance % (1000 * 60)) / 1000);
         
-      document.getElementById("COT_end").innerHTML = days + "d " + hours + "h "
+      document.getElementById("CSM_end").innerHTML = days + "d " + hours + "h "
       + minutes + "m " + seconds + "s ";
         
         
       if (distance < 0) {
         clearInterval(x);
-        document.getElementById("COT_end").innerHTML = "00d 00h 00m 00s";
+        document.getElementById("CSM_end").innerHTML = "00d 00h 00m 00s";
       }
     }, 1000);
 

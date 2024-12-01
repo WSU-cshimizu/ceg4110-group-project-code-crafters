@@ -46,7 +46,6 @@ def landingpage(request):
     cla_candidates = CLA_Candidate.objects.all()
     cbus_candidates = CBUS_Candidate.objects.all()
     
-    # Combine all candidates into one list
     all_candidates = list(main_candidates) + list(cecs_candidates) + list(csm_candidates) + list(cla_candidates) + list(cbus_candidates)
 
    
